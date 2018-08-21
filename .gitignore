@@ -37,3 +37,5 @@ yarn-debug.log*
 
 # personal configuration of the database
 config/database.yml
+.env*
+.env*
