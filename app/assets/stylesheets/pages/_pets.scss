@@ -1,0 +1,35 @@
+// split css by controller method / page
+
+// ie; Index page - all pets
+
+// SHOW Page
+
+.form-group {
+  display: flex;
+  justify-content: space-between;
+}
+
+.pet_photo {
+  display: flex;
+  justify-content: space-between;
+}
+
+.container {
+  text-align: center;
+  h3 {
+    margin-bottom: 25px;
+  }
+}
+.redirect-all-pets {
+  text-align: center;
+  margin-top: 40px;
+}
+
+
+#new-petto {
+  margin-bottom: 20px;
+}
+
+.pet-pic {
+  margin-bottom: 20px;
+}

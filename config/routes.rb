@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  get 'survey_responses/create'
-  get 'survey_responses/new'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+ # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  devise_for :users
+  root to: "pages#home"
   resources :surveys, only: [:show] do
   	resources :survey_responses, only: [:new, :create]
   end
