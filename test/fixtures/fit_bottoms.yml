@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id: MyString
+  waist_circumference: 1
+  inner_leg: 1
+  outer_leg: 1
+  thigh_circumference: 1
+  glutes: 1
+
+two:
+  id: MyString
+  waist_circumference: 1
+  inner_leg: 1
+  outer_leg: 1
+  thigh_circumference: 1
+  glutes: 1

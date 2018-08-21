@@ -1,0 +1,2 @@
+class FitBottom < ApplicationRecord
+end
