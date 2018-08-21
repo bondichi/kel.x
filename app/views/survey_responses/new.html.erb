@@ -1,2 +1,13 @@
-<h1>SurveyResponses#new</h1>
-<p>Find me in app/views/survey_responses/new.html.erb</p>
+<h1>Onboarding to Kel.X</h1>
+
+<% @survey_response.unanswered_questions.each do |question| %>
+  <%= simple_form_for [question, Answer.new(survey_response: @survey_response)] do |f| %>
+		<ul>
+			<%= question[:content]["question"] %>
+		</ul>
+
+		<%= f.input :survey_response_id, as: :hidden %>
+		<%= f.label :content %>
+		<%= f.text_field :content %>
+	<% end %>
+<% end %>
