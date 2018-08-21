@@ -1,0 +1,12 @@
+<h1>Edit page</h1>
+
+<%= simple_form_for(@profile) do |f| %>
+<%= f.error_notification %>
+<%= f.input :first_name %>
+<%= f.input :last_name %>
+<%= f.input :age %>
+<%= f.input :gender %>
+<%= f.input :occupation %>
+
+<%= f.button :submit %>
+<% end %>
