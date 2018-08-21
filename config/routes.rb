@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'products/index'
+  get 'products/show'
   get 'survey_responses/create'
   get 'survey_responses/new'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
