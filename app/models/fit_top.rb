@@ -1,0 +1,2 @@
+class FitTop < ApplicationRecord
+end

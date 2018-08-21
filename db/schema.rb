@@ -10,10 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 2018_08_21_023220) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+
+  create_table "brands", force: :cascade do |t|
+    t.string "name"
+  end
 
   create_table "answers", force: :cascade do |t|
     t.bigint "question_id"
@@ -36,6 +42,43 @@ ActiveRecord::Schema.define(version: 2018_08_21_023220) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "fit_tops", force: :cascade do |t|
+    t.integer "neck_circumference"
+    t.integer "shoulder_width"
+    t.integer "arm_length"
+    t.integer "center_back"
+    t.integer "chest_width"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.string "vpn"
+    t.string "style"
+    t.string "sku"
+    t.bigint "barcode"
+    t.string "size"
+    t.integer "neck_circumference"
+    t.integer "shoulder_width"
+    t.integer "arm_length"
+    t.integer "center_back"
+    t.integer "chest_width"
+    t.integer "waist_circumference"
+    t.integer "inner_leg"
+    t.integer "outer_leg"
+    t.integer "thigh_circumference"
+    t.integer "glutes"
+    t.decimal "cost_price"
+    t.decimal "rrp"
+    t.decimal "sale_price"
+    t.string "photo_id"
+    t.bigint "brand_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["brand_id"], name: "index_products_on_brand_id"
+  end
+
+
   create_table "questions", force: :cascade do |t|
     t.bigint "survey_id"
     t.json "content"
@@ -57,6 +100,7 @@ ActiveRecord::Schema.define(version: 2018_08_21_023220) do
     t.string "name"
   end
 
+  add_foreign_key "products", "brands"
   add_foreign_key "answers", "questions"
   add_foreign_key "answers", "survey_responses"
   add_foreign_key "questions", "surveys"
