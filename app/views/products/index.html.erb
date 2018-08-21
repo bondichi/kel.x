@@ -1,2 +1,14 @@
-<h1>Products#index</h1>
-<p>Find me in app/views/products/index.html.erb</p>
+<h1>Our Recommendations</h1>
+
+<h3>TO DO</h3>
+<ul>
+  <li>This page should show all recommendations for the user in a cards grid</li>
+  <li>User should be able to filter by category</li>
+</ul>
+
+<h4>All Recommendations</h4>
+
+<% @products.each do |product| %>
+<p>Product Brand: <%= product.brand.name %></p>
+<p>GRID ITEM(image)<%= link_to "Show Product", product_path(product)%></p>
+<% end %>
