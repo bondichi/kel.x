@@ -80,11 +80,11 @@
 </row>
 <row name="fit_bottom_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
-<default>NULL</default><relation table="fit_bottom" row="id" />
+<default>NULL</default><relation table="fit_bottoms" row="id" />
 </row>
 <row name="fit_top_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
-<default>NULL</default><relation table="fit_top" row="id" />
+<default>NULL</default><relation table="fit_tops" row="id" />
 </row>
 <key type="PRIMARY" name="">
 <part>id</part>
@@ -120,7 +120,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="562" y="305" name="fit_top">
+<table x="562" y="305" name="fit_tops">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -143,7 +143,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="495" y="126" name="fit_bottom">
+<table x="495" y="126" name="fit_bottoms">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -166,7 +166,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="855" y="797" name="brands">
+<table x="820" y="1317" name="brands">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -177,7 +177,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="542" y="520" name="products">
+<table x="543" y="926" name="products">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -264,7 +264,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="250" y="738.5555725097656" name="order_items">
+<table x="250" y="738" name="order_items">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -286,7 +286,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="27" y="795.148193359375" name="payments">
+<table x="27" y="795" name="payments">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -298,7 +298,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="249" y="969.0000305175781" name="cart_items">
+<table x="249" y="969" name="cart_items">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -313,6 +313,58 @@
 <row name="quantity" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="764" y="570.1111450195312" name="surveys">
+<row name="id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="935" y="464.11114501953125" name="questions">
+<row name="id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="survey_id" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="surveys" row="id" />
+</row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="899.8888893127441" y="669.3703918457031" name="answers">
+<row name="id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="question_id" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="questions" row="id" />
+</row>
+<row name="survey_response_id" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="survey_responses" row="id" />
+</row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="492" y="562.4814910888672" name="survey_responses">
+<row name="id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="profile_id" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="profiles" row="id" />
+</row>
+<row name="survey_id" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="surveys" row="id" />
+</row>
 <key type="PRIMARY" name="">
 <part>id</part>
 </key>
