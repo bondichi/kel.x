@@ -9,4 +9,7 @@ Rails.application.routes.draw do
   resources :questions, only:[:show] do
   	resources :answers, only:[:new, :create]
   end
+
+  resources :products, only: [:index, :show]
+
 end
