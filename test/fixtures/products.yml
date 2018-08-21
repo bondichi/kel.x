@@ -1,0 +1,45 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  vpn: MyString
+  style: MyString
+  sku: MyString
+  barcode: 
+  size: MyString
+  neck_circumference: 1
+  shoulder_width: 1
+  arm_length: 1
+  center_back: 1
+  chest_width: 1
+  waist_circumference: 1
+  inner_leg: 1
+  outer_leg: 1
+  thigh_circumference: 1
+  glutes: 1
+  cost_price: 9.99
+  rrp: 9.99
+  sale_price: 9.99
+  photo_id: MyString
+  brand: one
+
+two:
+  vpn: MyString
+  style: MyString
+  sku: MyString
+  barcode: 
+  size: MyString
+  neck_circumference: 1
+  shoulder_width: 1
+  arm_length: 1
+  center_back: 1
+  chest_width: 1
+  waist_circumference: 1
+  inner_leg: 1
+  outer_leg: 1
+  thigh_circumference: 1
+  glutes: 1
+  cost_price: 9.99
+  rrp: 9.99
+  sale_price: 9.99
+  photo_id: MyString
+  brand: two
