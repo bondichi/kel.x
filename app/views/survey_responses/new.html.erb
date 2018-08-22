@@ -1,13 +1,34 @@
 <h1>Onboarding to Kel.X</h1>
 
 <% @survey_response.unanswered_questions.each do |question| %>
-  <%= simple_form_for [question, Answer.new(survey_response: @survey_response)] do |f| %>
-		<ul>
-			<%= question[:content]["question"] %>
-		</ul>
+	<% if question[:content]["type"] == "standard"  %>
+	  <%= simple_form_for [question, Answer.new(survey_response: @survey_response)] do |f| %>
+			<ul>
+				<%= question[:content]["question"] %>
+			</ul>
 
-		<%= f.input :survey_response_id, as: :hidden %>
-		<%= f.label :content %>
-		<%= f.text_field :content %>
+			<%= f.input :survey_response_id, as: :hidden %>
+			<%= f.label :content %>
+			<%= f.text_field :content %>
+		<% end %>
+	<% else %>
+
+	  <%= simple_form_for [question, Answer.new(survey_response: @survey_response)] do |f| %>
+			<ul>
+				<%= question[:content]["question"] %>
+			</ul>
+
+			<%= f.input :survey_response_id, as: :hidden %>
+	
+
+			
+			<%= f.select(:content) do %>
+			  <% question[:content]["options"].each do |c| -%>
+			    <%= content_tag(:option, c.first, value: c.last) %>
+			  <% end %>
+			<% end %>
+
+		<% end %>
+
 	<% end %>
 <% end %>
