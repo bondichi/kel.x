@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   end
 
   resource :profile, only: [:update, :edit, :show]
+  resources :products, only: [:index, :show]
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_21_071026) do
+ActiveRecord::Schema.define(version: 2018_08_21_072757) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,17 @@ ActiveRecord::Schema.define(version: 2018_08_21_071026) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+
+  create_table "cart_items", force: :cascade do |t|
+    t.integer "quantity"
+    t.bigint "user_id"
+    t.bigint "product_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_cart_items_on_product_id"
+    t.index ["user_id"], name: "index_cart_items_on_user_id"
   end
 
   create_table "fit_bottoms", force: :cascade do |t|
@@ -51,6 +62,31 @@ ActiveRecord::Schema.define(version: 2018_08_21_071026) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "order_items", force: :cascade do |t|
+    t.integer "quantity"
+    t.integer "product_price_cents"
+    t.bigint "order_id"
+    t.bigint "product_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["order_id"], name: "index_order_items_on_order_id"
+    t.index ["product_id"], name: "index_order_items_on_product_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_orders_on_user_id"
+  end
+
+  create_table "payments", force: :cascade do |t|
+    t.bigint "order_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["order_id"], name: "index_payments_on_order_id"
+  end
+
   create_table "products", force: :cascade do |t|
     t.string "vpn"
     t.string "style"
@@ -67,13 +103,18 @@ ActiveRecord::Schema.define(version: 2018_08_21_071026) do
     t.integer "outer_leg"
     t.integer "thigh_circumference"
     t.integer "glutes"
-    t.decimal "cost_price"
-    t.decimal "rrp"
-    t.decimal "sale_price"
+    t.integer "cost_price"
+    t.integer "rrp"
+    t.integer "sale_price"
     t.string "photo_id"
     t.bigint "brand_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "description"
+    t.string "category"
+    t.integer "cost_price_cents", default: 0, null: false
+    t.integer "rrp_cents", default: 0, null: false
+    t.integer "sale_price_cents", default: 0, null: false
     t.index ["brand_id"], name: "index_products_on_brand_id"
   end
 
@@ -95,6 +136,19 @@ ActiveRecord::Schema.define(version: 2018_08_21_071026) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["survey_id"], name: "index_questions_on_survey_id"
+  end
+
+  create_table "shipping_addresses", force: :cascade do |t|
+    t.integer "number"
+    t.string "street"
+    t.string "suburb"
+    t.string "city"
+    t.string "state"
+    t.bigint "profile_id"
+    t.string "special"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["profile_id"], name: "index_shipping_addresses_on_profile_id"
   end
 
   create_table "survey_responses", force: :cascade do |t|
@@ -126,6 +180,14 @@ ActiveRecord::Schema.define(version: 2018_08_21_071026) do
   add_foreign_key "answers", "survey_responses"
   add_foreign_key "products", "brands"
   add_foreign_key "profiles", "users"
+  add_foreign_key "cart_items", "products"
+  add_foreign_key "cart_items", "users"
+  add_foreign_key "order_items", "orders"
+  add_foreign_key "order_items", "products"
+  add_foreign_key "orders", "users"
+  add_foreign_key "payments", "orders"
+  add_foreign_key "products", "brands"
   add_foreign_key "questions", "surveys"
+  add_foreign_key "shipping_addresses", "profiles"
   add_foreign_key "survey_responses", "surveys"
 end
