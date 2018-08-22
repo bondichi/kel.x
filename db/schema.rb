@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 2018_08_21_072757) do
     t.datetime "updated_at", null: false
   end
 
+
   create_table "cart_items", force: :cascade do |t|
     t.integer "quantity"
     t.bigint "user_id"
@@ -126,6 +127,7 @@ ActiveRecord::Schema.define(version: 2018_08_21_072757) do
     t.date "brithday"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
   end
 
   create_table "questions", force: :cascade do |t|
@@ -176,6 +178,8 @@ ActiveRecord::Schema.define(version: 2018_08_21_072757) do
 
   add_foreign_key "answers", "questions"
   add_foreign_key "answers", "survey_responses"
+  add_foreign_key "products", "brands"
+  add_foreign_key "profiles", "users"
   add_foreign_key "cart_items", "products"
   add_foreign_key "cart_items", "users"
   add_foreign_key "order_items", "orders"

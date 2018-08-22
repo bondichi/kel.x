@@ -10,6 +10,6 @@ Rails.application.routes.draw do
   	resources :answers, only:[:new, :create]
   end
 
+  resource :profile, only: [:update, :edit, :show]
   resources :products, only: [:index, :show]
-
 end
