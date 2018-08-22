@@ -3,7 +3,7 @@ class CartItemsController < ApplicationController
   # before_action :set_user
 
   def index
-    @cart_items = CartItem.all
+    @cart_items = current_user.cart_items
   end
 
   def show

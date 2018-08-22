@@ -12,6 +12,10 @@ Rails.application.routes.draw do
   end
 
   resource :profile, only: [:update, :edit, :show]
+
   resources :products, only: [:index, :show]
+
   resources :cart_items
+
+  resources :orders, only: [:show, :create]
 end

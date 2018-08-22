@@ -14,6 +14,7 @@
     <p>Description: <%= product.description %></p>
     <p>Product Brand: <%= product.category %></p>
     <p>Product Brand: <%= product.brand.name %></p>
+    <p>Amount: <%= humanized_money_with_symbol(product.sale_price_cents) %></p>
     <p>GRID ITEM(image)<%= link_to "Show Product", product_path(product)%></p>
   <% end %>
 </div>
