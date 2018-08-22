@@ -1,5 +1,7 @@
 <h1>Product Page</h1>
 
+<h2>Description:<%= @product.description %></h2>
+
 <h3>TO DO</h3>
 <ul>
 <li>This page should show the product image description price etc which has been clicked from recommendations page</li>
@@ -9,5 +11,11 @@
 </ul>
 
 
-<button><%= link_to "Back to Recommendations", products_path(@products)%></button>
 
+
+<button><%= link_to "Back to Recommendations", products_path %></button>
+
+<%= simple_form_for @cart_item do |f| %>
+  <%= f.input :product_id, as: :hidden %>
+  <%= f.button :submit, "Add to cart" %>
+<% end %>

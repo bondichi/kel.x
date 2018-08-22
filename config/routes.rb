@@ -13,4 +13,5 @@ Rails.application.routes.draw do
 
   resource :profile, only: [:update, :edit, :show]
   resources :products, only: [:index, :show]
+  resources :cart_items
 end
