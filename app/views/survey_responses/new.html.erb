@@ -26,6 +26,7 @@
 			  <% question[:content]["options"].each do |c| -%>
 			    <%= content_tag(:option, c.first, value: c.last) %>
 			  <% end %>
+			  <%= submit_tag("Submit") %>
 			<% end %>
 
 		<% end %>
