@@ -1,14 +1,20 @@
-<h1>Our Recommendations</h1>
 
-<h3>TO DO</h3>
-<ul>
-  <li>This page should show all recommendations for the user in a cards grid</li>
-  <li>User should be able to filter by category</li>
-</ul>
+<div class="main-wrapper-product-index">
+  <h1>Our Recommendations</h1>
 
-<h4>All Recommendations</h4>
+  <h3>TO DO</h3>
+  <ul>
+    <li>This page should show all recommendations for the user in a cards grid</li>
+    <li>User should be able to filter by category</li>
+  </ul>
 
-<% @products.each do |product| %>
-<p>Product Brand: <%= product.brand.name %></p>
-<p>GRID ITEM(image)<%= link_to "Show Product", product_path(product)%></p>
-<% end %>
+  <h4>All Recommendations</h4>
+
+  <% @products.each do |product| %>
+    <p>Description: <%= product.description %></p>
+    <p>Product Brand: <%= product.category %></p>
+    <p>Product Brand: <%= product.brand.name %></p>
+    <p>GRID ITEM(image)<%= link_to "Show Product", product_path(product)%></p>
+  <% end %>
+</div>
+
