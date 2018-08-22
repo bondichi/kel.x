@@ -1,25 +1,22 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+require 'csv'
 
-# creating the survey
-puts "Deleting previous survey and question seeds"
+csv_options = { col_sep: ',', quote_char: '"', headers: :first_row }
+filepath    = 'db/products.csv'
 
-Answer.destroy_all
-SurveyResponse.destroy_all
-Question.destroy_all
-Survey.destroy_all
+puts "Creating 3 brands"
 
-product1 = Product.new(
-  vpn: "1314784",
-  style: "WORK",
-  sku: "S18100100105",
+ Brand.create(name: 'POLO RALPH LAUREN')
+ Brand.create(name: 'NEW LOOK')
+ Brand.create(name: 'PULL & BEAR')
+
+CSV.foreach(filepath, csv_options) do |row|
+  puts "Making a Product"
+  Product.create!(
+  vpn: row['vpn'],
+  style: row['style'],
+  sku: row['sku'],
   barcode: 0,
-  size: "M",
+  size: row['size'],
   neck_circumference: 0,
   shoulder_width: 0,
   arm_length: 0,
@@ -31,27 +28,34 @@ product1 = Product.new(
   thigh_circumference: 0,
   glutes: 0,
   cost_price: 0,
-  rrp: 0,
+  rrp: row['rrp'].to_i,
   sale_price: 0,
   photo_id: 0,
-  brand_id: 0,
+  brand_id: row['brand_id'].to_i,
   created_at: 0,
   updated_at: 0,
-  description: "Polo Ralph Lauren slim fit gingham poplin shirt player logo button down in green/white",
-  category: "TOPS",
+  description: row['description'],
+  category: row['category'],
   cost_price_cents: 0,
-  rrp_cents: 0,
-  sale_price_cents: 0,
-  vendor: "ASOS",
-  style_number: "S181001001",
-  size_code: "05",
-  sub_category: "",
-  fabric_composition: "100%' 'cotton",
-  silhouette: "slim",
-  main_colour: "green",
-  print_wash: "gingham",
-  remote_photo_url: "https://images.asos-media.com/products/polo-ralph-lauren-slim-fit-gingham-poplin-shirt-player-logo-button-down-in-green-white/10233316-1-evergreenwhite?$XXL$&wid=513&fit=constrain",
-  )
+  rrp_cents: row['rrp_cents'].to_i,
+  sale_price_cents: row['sale_price_cents'].to_i,
+  vendor: row['vendor'],
+  style_number: row['style_number'],
+  size_code: row['size_code'],
+  sub_category: row['sub_category'],
+  fabric_composition: row['fabric_composition'],
+  silhouette: row['silhouette'],
+  main_colour: row['main_colour'],
+  print_wash: row['print_wash'],
+  remote_photo_url: row['remote_photo_url'])
+end
+
+puts "Deleting previous survey and question seeds"
+
+Answer.destroy_all
+SurveyResponse.destroy_all
+Question.destroy_all
+Survey.destroy_all
 
 puts "Creating the Onboarding Survey"
 
@@ -65,9 +69,6 @@ q3 = Question.new(content: {type: "standard", question: "What colours do you pre
 q4 = Question.new(content: {type: "standard", question: "Do you have any upcoming events to get dressed for?"})
 q5 = Question.new(content: {type: "selection", question: "How casual is your work attire?", options: [["Professional", 1], ["Smart Casual", 2], ["Casual", 3]] })
 q6 = Question.new(content: {type: "selection", question: "What colour wouldn't you wear?", options: [["Pink", 1], ["White", 2], ["Tan", 3]] })
-
-
-
 
 
 q1.survey = survey
