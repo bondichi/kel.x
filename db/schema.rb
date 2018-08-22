@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_21_072757) do
+ActiveRecord::Schema.define(version: 2018_08_22_020933) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,7 +30,6 @@ ActiveRecord::Schema.define(version: 2018_08_21_072757) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
 
   create_table "cart_items", force: :cascade do |t|
     t.integer "quantity"
@@ -115,6 +114,15 @@ ActiveRecord::Schema.define(version: 2018_08_21_072757) do
     t.integer "cost_price_cents", default: 0, null: false
     t.integer "rrp_cents", default: 0, null: false
     t.integer "sale_price_cents", default: 0, null: false
+    t.string "vendor"
+    t.string "style_number"
+    t.string "size_code"
+    t.string "sub_category"
+    t.string "fabric_composition"
+    t.string "silhouette"
+    t.string "main_colour"
+    t.string "print_wash"
+    t.string "photo"
     t.index ["brand_id"], name: "index_products_on_brand_id"
   end
 
@@ -178,8 +186,6 @@ ActiveRecord::Schema.define(version: 2018_08_21_072757) do
 
   add_foreign_key "answers", "questions"
   add_foreign_key "answers", "survey_responses"
-  add_foreign_key "products", "brands"
-  add_foreign_key "profiles", "users"
   add_foreign_key "cart_items", "products"
   add_foreign_key "cart_items", "users"
   add_foreign_key "order_items", "orders"
@@ -187,6 +193,7 @@ ActiveRecord::Schema.define(version: 2018_08_21_072757) do
   add_foreign_key "orders", "users"
   add_foreign_key "payments", "orders"
   add_foreign_key "products", "brands"
+  add_foreign_key "profiles", "users"
   add_foreign_key "questions", "surveys"
   add_foreign_key "shipping_addresses", "profiles"
   add_foreign_key "survey_responses", "surveys"
