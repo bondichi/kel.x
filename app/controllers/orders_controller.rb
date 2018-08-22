@@ -19,7 +19,6 @@ class OrdersController < ApplicationController
   end
 
   def show
-    raise
     @order = Order.find(current_user.order)
   end
 

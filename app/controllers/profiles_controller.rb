@@ -1,6 +1,5 @@
 class ProfilesController < ApplicationController
   def edit
-    # raise
     @profile = current_user.profile
     # authorize @profile
   end
