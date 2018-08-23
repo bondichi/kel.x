@@ -20,7 +20,12 @@
 
 
     <!-- footer -->
+<!--     this if statement is for not showing footer in survey page -->
+    <% if content_for?(:footer) %>
+    <%= yield(:footer) %>
+    <% else %>
     <%= render 'shared/footer' %>
+    <% end %>
 
   </body>
 </html>
