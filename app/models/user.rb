@@ -8,4 +8,12 @@ class User < ApplicationRecord
   has_many :cart_items
   has_many :orders
   has_many :order_items, through: :order
+  after_create :create_profile
+
+  private 
+
+  def create_profile
+  	# user = self
+  	Profile.create!(user: self)
+  end
 end
