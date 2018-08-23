@@ -1,4 +1,69 @@
-<h1>Purchase of Products </h1>
+<div class="checkout-header">
+  <h1>Kel.X Checkout</h1>
+</div>
+  <table class="table table-striped">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Delivery Address</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr> 
+        <td>
+          <%= @shipping.number %> <%= @shipping.street %> 
+        </td>
+      </tr>
+      <tr> 
+        <td>
+          <%= @shipping.suburb %>
+        </td>
+      </tr>
+      <tr> 
+        <td>
+          <%= @shipping.city %>
+        </td>
+      </tr>
+      <tr> 
+        <td>
+          <%= @shipping.state %>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table class="table table-striped">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Image</th>
+        <th scope="col">Product</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Total Price</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @cart_items.each do |cart_item| %>
+      <tr>
+        <th scope="row">Image <%= link_to "Show Product", product_path(cart_item.product_id) %></th>
+        <td><%= cart_item.product.description %></td>
+        <td><%= cart_item.quantity %></td>
+        <td><%= humanized_money_with_symbol(cart_item.product.sale_price * cart_item.quantity) %></td>
+        <td><%= link_to "Delete Cart Item", cart_item_path(cart_item), :method => :delete, :confirm => "Are you sure?", class: 'btn btn-danger' %></td>
+      </tr>
+    <% end %>
+      <tr class="table-warning">
+        <th scope="row">TOTAL </th>
+        <td></td>
+        <td></td>
+        <td><%= @sum_total %></td>
+
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+
 <%= form_tag order_payments_path(@order) do %>
   <article>
     <label class="amount">
