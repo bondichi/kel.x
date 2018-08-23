@@ -17,7 +17,7 @@
         <th scope="row">Image <%= link_to "Show Product", product_path(cart_item.product_id) %></th>
         <td><%= cart_item.product.description %></td>
         <td><%= cart_item.quantity %></td>
-        <td><%= humanized_money_with_symbol(cart_item.product.sale_price_cents * cart_item.quantity) %></td>
+        <td><%= humanized_money_with_symbol(cart_item.product.sale_price * cart_item.quantity) %></td>
         <td><%= link_to "Delete Cart Item", cart_item_path(cart_item), :method => :delete, :confirm => "Are you sure?", class: 'btn btn-danger' %></td>
       </tr>
     <% end %>

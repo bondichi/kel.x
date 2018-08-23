@@ -2,7 +2,8 @@ class PaymentsController < ApplicationController
 	before_action :set_order
 
   def new
-
+    @cart_items = current_user.cart_items
+    @shipping = ShippingAddress.find(current_user.profile.shipping_address_ids.first)
   end
 
   def create
