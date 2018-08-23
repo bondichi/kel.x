@@ -1,21 +1,42 @@
-<h1>Product Page</h1>
 
-<h2>Description:<%= @product.description %></h2>
+<div class="wrapper-product-page">
+  <div class="row">
+      <div class="col-sm-offset-2 col-sm-8">
+        <div class="product-page-container">
+      <div class="row">
+        <div class="col-sm-5">
+          <div class="product-page-img">
+            <img class= "main-image" src=<%= cl_image_path @product.photo %> alt="Image of outfit">
+          </div>
+        </div>
+        <div class="col-sm-7">
+          <div class="product-page-content">
+            <div class="product-description">
+              <h4><strong><%= @product.brand.name %></strong></h4>
+              <h5><%= @product.description %></h5>
+              <p>Main colour: <%= @product.main_colour %></p>
+              <p>Print/wash: <%= @product.print_wash %></p>
+              <p>Fit: <%= @product.silhouette %></p>
+              <p>Fabric Composition: <%= @product.fabric_composition %></p>
+            </div>
+            <div class="product-price">
+              <p><strong>Sale Price: </strong><%=  humanized_money_with_symbol(@product.sale_price) %></p>
 
-<h3>TO DO</h3>
-<ul>
-<li>This page should show the product image description price etc which has been clicked from recommendations page</li>
-<li>TO DO: Add to Cart</li>
-<li>TO DO: Add to Wishlist</li>
-<li>TO DO: Show cards for similar products</li>
-</ul>
+            </div>
 
-
-
-
-<button><%= link_to "Back to Recommendations", products_path %></button>
-
-<%= simple_form_for @cart_item do |f| %>
-  <%= f.input :product_id, as: :hidden %>
-  <%= f.button :submit, "Add to cart" %>
-<% end %>
+            <div class= "add-to-cart">
+              <%= simple_form_for @cart_item do |f| %>
+                <%= f.input :product_id, as: :hidden %>
+                <%= f.button :submit, "Add to cart" %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="back-to-recs">
+  <button class = "btn-back-to-recs"><%= link_to "Back to Recommendations", products_path %></button>
+  </div>
+</div>
