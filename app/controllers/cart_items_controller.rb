@@ -4,6 +4,7 @@ class CartItemsController < ApplicationController
 
   def index
     @cart_items = current_user.cart_items
+    @sum_total = @cart_items.map { |item| item.quantity * item.product.sale_price }.sum
   end
 
   def show
