@@ -1,37 +1,45 @@
-<h1>Onboarding to Kel.X</h1>
+<div class="wrapper">
+  <% @survey_response.unanswered_questions.each do |question| %>
+    <div class="survey_form">
+    	<% if question[:content]["type"] == "standard"  %>
+    	  <%= simple_form_for [question, Answer.new(survey_response: @survey_response)] do |f| %>
+          <div class="question">
+      			<ul>
+      				<%= question[:content]["question"] %>
+      			</ul>
+          </div>
+          <div class="input">
+      			<%= f.input :survey_response_id, as: :hidden %>
+          </div>
+    			<%= f.label :content %>
+    			<%= f.text_field :content %>
+    	  <% end %>
+    	<% else %>
+    	  <%= simple_form_for [question, Answer.new(survey_response: @survey_response)] do |f| %>
+    			<ul>
+    				<%= question[:content]["question"] %>
+    			</ul>
 
-<% @survey_response.unanswered_questions.each do |question| %>
-	<% if question[:content]["type"] == "standard"  %>
-	  <%= simple_form_for [question, Answer.new(survey_response: @survey_response)] do |f| %>
-			<ul>
-				<%= question[:content]["question"] %>
-			</ul>
-
-			<%= f.input :survey_response_id, as: :hidden %>
-			<%= f.label :content %>
-			<%= f.text_field :content %>
-		<% end %>
-	<% else %>
-
-	  <%= simple_form_for [question, Answer.new(survey_response: @survey_response)] do |f| %>
-			<ul>
-				<%= question[:content]["question"] %>
-			</ul>
-
-			<%= f.input :survey_response_id, as: :hidden %>
+    			<%= f.input :survey_response_id, as: :hidden %>
 
 
 
-			<%= f.select(:content) do %>
-			  <% question[:content]["options"].each do |c| -%>
-			    <%= content_tag(:option, c.first, value: c.last) %>
-			  <% end %>
-			  <%= submit_tag("Submit") %>
-			<% end %>
-
-		<% end %>
-
-	<% end %>
-<% end %>
+    			<%= f.select(:content) do %>
+    			  <% question[:content]["options"].each do |c| -%>
+    			    <%= content_tag(:option, c.first, value: c.last) %>
+    			  <% end %>
+    			  <%= submit_tag("Submit") %>
+    			<% end %>
+    	  <% end %>
+      <% end %>
+    </div>
+  <% end %>
 
 <%=link_to "Recommendations", products_path, class: 'btn btn-default' %>
+
+</div>
+
+
+    <% content_for :footer do %>
+    <p></p>
+    <% end %>

@@ -1,9 +1,9 @@
 // Specific CSS for your home-page
-.wrapper-home{
-                display: flex;
-                justify-content: space-between;
+.wrapper-info {
+  display: flex;
+  justify-content: space-between;
 }
 
-body {
-  font-family: Times, serif;
+.container-info {
+  flex: 0 0 20%
 }
