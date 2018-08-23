@@ -1,9 +1,42 @@
 // Specific CSS for your home-page
-.wrapper-info {
+.wrapper-home {
   display: flex;
-  justify-content: space-between;
+  align-item: center;
+  justify-content: space-around;
+  background-color: white;
 }
 
 .container-info {
-  flex: 0 0 20%
+  flex:0 0 34%;
+  margin-top: 20px;
+  margin-bottom: 80px;
 }
+
+.container-card {
+  flex:1 0 20%;
+  margin-top: 50px;
+}
+
+.home-card {
+  height: 393px;
+  width: 474px;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+  background-size: cover !important;
+  background-position: center;
+  color: white;
+  position: relative;
+  margin-bottom: 14px;
+}
+
+.container_button1 {
+  margin-top: 50px;
+  margin-bottom: 57px;
+}
+
+.container_button2 {
+  margin-top: 50px;
+  margin-bottom: 56px;
+  background-color: white;
+  height: 102px;
+}
+
