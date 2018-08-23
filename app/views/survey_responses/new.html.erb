@@ -19,9 +19,9 @@
 			</ul>
 
 			<%= f.input :survey_response_id, as: :hidden %>
-	
 
-			
+
+
 			<%= f.select(:content) do %>
 			  <% question[:content]["options"].each do |c| -%>
 			    <%= content_tag(:option, c.first, value: c.last) %>
@@ -34,4 +34,4 @@
 	<% end %>
 <% end %>
 
-<% link_to "Recommendations", products_path, class: 'btn btn-default' %>
+<%=link_to "Recommendations", products_path, class: 'btn btn-default' %>
