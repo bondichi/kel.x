@@ -1,0 +1,12 @@
+<h1>Order Confirmation Page</h1>
+
+<% @order.order_items.each do |item| %>
+	<h4>Item: <%= item.product.description %></h4>
+	<p>Quantity: <%= item.quantity %></p>
+	<p>Price: <%= humanized_money_with_symbol item.product.sale_price %></p>
+<% end %>
+
+<h3>Total: <%= humanized_money_with_symbol @order.amount %></h3>
+
+
+<%= link_to "Pay", new_order_payment_path(@order) %>

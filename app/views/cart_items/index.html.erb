@@ -1,15 +1,36 @@
-<h1>Kel-X Shopping Cart</h1>
-<p>All Items in your cart</p>
+<div class="container">
+  <h1>Kel-X Shopping Cart</h1>
+  <p>All Items in your cart</p>
+  <table class="table table-striped">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Image</th>
+        <th scope="col">Product</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Total Price</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @cart_items.each do |cart_item| %>
+      <tr>
+        <th scope="row">Image <%= link_to "Show Product", product_path(cart_item.product_id) %></th>
+        <td><%= cart_item.product.description %></td>
+        <td><%= cart_item.quantity %></td>
+        <td><%= humanized_money_with_symbol(cart_item.product.sale_price_cents * cart_item.quantity) %></td>
+        <td><%= link_to "Delete Cart Item", cart_item_path(cart_item), :method => :delete, :confirm => "Are you sure?", class: 'btn btn-danger' %></td>
+      </tr>
+    <% end %>
+      <tr class="table-warning">
+        <th scope="row">TOTAL </th>
+        <td></td>
+        <td></td>
+        <td><%= @sum_total %></td>
 
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
 
-  <% @cart_items.each do |cart_item| %>
-    <p>Quantity: <%= cart_item.quantity %></p>
-    <p>Description: <%= cart_item.product.description %></p>
-    <p>SalePrice(cents): <%= cart_item.product.sale_price_cents %></p>
-    <p>GRID ITEM(image)<%= link_to "Show Product", product_path(cart_item.product_id) %></p>
-    <%= link_to "Delete Cart Item", cart_item_path(cart_item), :method => :delete, :confirm => "Are you sure?", class: 'btn btn-danger' %>
-  <% end %>
-
-  <%= form_tag orders_path do %>
-  <%= submit_tag 'Checkout', class: 'btn btn-primary'%>
-  <% end %>
+  <%= link_to('Checkout', edit_profile_shipping_address_path, class: 'btn btn-primary') %>
+</div>

@@ -26,9 +26,6 @@
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 
-# ignore sensitive private keys
-.env*
-
 /public/packs
 /public/packs-test
 /node_modules
@@ -37,5 +34,4 @@ yarn-debug.log*
 
 # personal configuration of the database
 config/database.yml
-.env*
 .env*

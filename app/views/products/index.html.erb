@@ -6,13 +6,15 @@
   <div class="row">
     <% @products.each do |product| %>
       <div class="col-xs-12 col-sm-6 col-md-4">
+        <%=  link_to(product) do %>
         <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= cl_image_path product.photo%>);">
           <div class="card-category"><%= product.brand.name %></div>
           <div class="card-description">
             <p><%= product.description %></p>
-            <p><%=  humanized_money_with_symbol(product.sale_price_cents) %></p>
+            <p><%=  humanized_money_with_symbol(product.sale_price) %></p>
           </div>
         </div>
+        <% end %>
       </div>
     <% end %>
   </div>
@@ -28,7 +30,7 @@
 
 
 
-<!--   <h3>TO DO</h3>
+<h3>TO DO</h3>
   <ul>
     <li>This page should show all recommendations for the user in a cards grid</li>
     <li>User should be able to filter by category</li>
@@ -43,5 +45,5 @@
     <p>Amount: <%= humanized_money_with_symbol(product.sale_price_cents) %></p>
     <p>GRID ITEM(image)<%= link_to "Show Product", product_path(product)%></p>
   <% end %>
-</div> -->
+</div>
 
