@@ -1,3 +1,17 @@
+
+  <% content_for :navbar do %>
+  <p></p>
+  <% end %>
+
+  <% content_for :footer do %>
+  <p></p>
+  <% end %>
+
+
+<div class="recommendation_button" style="text-align: center;">
+  <%=link_to "Recommendations", products_path, class: 'btn btn-default' %>
+</div>
+
 <div class="wrapper">
   <% @survey_response.unanswered_questions.each do |question| %>
     <div class="survey_form">
@@ -11,7 +25,6 @@
           <div class="input">
       			<%= f.input :survey_response_id, as: :hidden %>
           </div>
-    			<%= f.label :content %>
     			<%= f.text_field :content %>
     	  <% end %>
     	<% else %>
@@ -34,12 +47,6 @@
       <% end %>
     </div>
   <% end %>
-
-<%=link_to "Recommendations", products_path, class: 'btn btn-default' %>
-
 </div>
 
 
-    <% content_for :footer do %>
-    <p></p>
-    <% end %>
