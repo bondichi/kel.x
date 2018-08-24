@@ -63,13 +63,14 @@ survey = Survey.create(name: "Onboarding")
 
 puts "Creating Questions"
 
-q1 = Question.new(content: {type: "standard", question: "What is your favourite style?"})
-q2 = Question.new(content: {type: "standard", question: "What piece of clothing do you need the most?"})
-q3 = Question.new(content: {type: "standard", question: "What colours do you prefer to wear?"})
-q4 = Question.new(content: {type: "standard", question: "Do you have any upcoming events to get dressed for?"})
-q5 = Question.new(content: {type: "selection", question: "How casual is your work attire?", options: [["Professional", 1], ["Smart Casual", 2], ["Casual", 3]] })
-q6 = Question.new(content: {type: "selection", question: "What colour wouldn't you wear?", options: [["Pink", 1], ["White", 2], ["Tan", 3]] })
-
+q1 = Question.new(content: {type: "selection", question: "Which of these brands fits you best in a long sleeve dress shirt?", options: [["Polo Ralph Lauren", 1], ["Pull & Bear", 2], ["New Look", 3]] })
+q2 = Question.new(content: {type: "selection", question: "Which size would you usually wear in your chosen brand?", options: [["XS", 1], ["S", 2], ["M", 3], ["L", 4], ["XL", 5], ["XL", 6], ["XXL", 7], ["XXXL", 8], ["4XL", 9], ["5XL", 10]] })
+q3 = Question.new(content: {type: "selection", question: "Which fit do you usually like to wear in a shirt?", options: [["Slim", 1], ["Tailored", 2], ["Standard", 3]] })
+q4 = Question.new(content: {type: "selection", question: "Which style to do prefer?", options: [["Smart", 1], ["Smart-Casual", 2], ["Casual", 3]] })
+q5 = Question.new(content: {type: "selection", question: "How would you categorise your skin tone?", options: [["Very Fair", 1], ["Fair", 2], ["Medium - Olive", 3], ["Olive - Moderate Brown", 4], ["Medium Brown - Dark Brown", 5], ["Dark Brown", 6], ["Very Dark Brown- Black", 7]] })
+q6 = Question.new(content: {type: "selection", question: "Are there any issues you usually have with shirts?", options: [["Shirt collar too tight", 1], ["Shirt collar too loose", 2], ["Shirt length too long", 3], ["Shirt length too short", 4], ["Shirt sleeve too long", 5], ["Shirt sleeves too short", 6], ["Shirt sleeves too tight", 7], ["Shirt body too loose", 8], ["Shirt body too tight", 9], ["No Issues", 10]] })
+q7 = Question.new(content: {type: "selection", question: "Are there any colours you don't like to wear?", options: [["Black and very dark shades", 1], ["White & very pale colours", 2], ["Very bright shades", 3], ["Neutrals / earth tones", 4], ["Pastel shades - pale pink, lilac", 5],["None", 6]]})
+q8 = Question.new(content: {type: "selection", question: "How much would you spend on a shirt?", options: [["$20-50", 1], ["$50-$100", 2], ["$100-150", 3], ["$150 +", 4]] })
 
 q1.survey = survey
 q1.save!
@@ -91,3 +92,10 @@ q5.save!
 
 q6.survey = survey
 q6.save!
+
+q7.survey = survey
+q7.save!
+
+q8.survey = survey
+q8.save!
+
