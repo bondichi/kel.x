@@ -4,8 +4,8 @@
   <table class="table table-striped">
     <thead class="thead-dark">
       <tr>
-        <th scope="col">Image</th>
-        <th scope="col">Product</th>
+        <th scope="col">Item</th>
+        <th scope="col">Description</th>
         <th scope="col">Quantity</th>
         <th scope="col">Total Price</th>
         <th scope="col"></th>
@@ -14,7 +14,13 @@
     <tbody>
     <% @cart_items.each do |cart_item| %>
       <tr>
-        <th scope="row">Image <%= link_to "Show Product", product_path(cart_item.product_id) %></th>
+        <th scope="row">
+          <%=  link_to product_path(cart_item.product_id) do %>
+            <div class="cart-image-container">
+              <img class= "cart-image" src=<%= cl_image_path cart_item.product.photo %> alt="Image of selected clothing item">
+            </div>
+          <% end %>
+        </th>
         <td><%= cart_item.product.description %></td>
         <td><%= cart_item.quantity %></td>
         <td><%= humanized_money_with_symbol(cart_item.product.sale_price * cart_item.quantity) %></td>
@@ -32,5 +38,11 @@
     </tbody>
   </table>
 
+  <div class="cart-navigations">
+
+  <%= link_to('Back to Recommendations', products_path, class: 'btn btn-primary') %>
+
   <%= link_to('Checkout', edit_profile_shipping_address_path, class: 'btn btn-primary') %>
+
+  </div>
 </div>
