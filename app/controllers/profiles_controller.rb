@@ -1,25 +1,19 @@
 class ProfilesController < ApplicationController
+  before_action :set_profile, only: [:edit, :update]
+
   def edit
-    @profile = current_user.profile
-    # authorize @profile
   end
 
   def update
-    @profile = current_user.profile
     @profile.update(profile_params)
+    redirect_to products_path
   end
 
-
-  # def update
-  #     @profile.user = current_user
-  #     # authorize
-  #     @profile
-  #     redirect_to profile_path(@profile)
-  #   # else
-  #     # render :edit
-  # end
-
   private
+
+  def set_profile
+    @profile = current_user.profile
+  end
 
   def profile_params
     params.require(:profile).permit(:first_name, :last_name, :age, :gender, :occupation)

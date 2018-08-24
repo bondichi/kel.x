@@ -11,7 +11,9 @@ Rails.application.routes.draw do
   	resources :answers, only:[:new, :create]
   end
 
-  resource :profile, only: [:update, :edit, :show]
+  resource :profile, only: [:update, :edit, :show] do
+    resource :shipping_address, only: [:update, :edit]
+  end
 
   resources :products, only: [:index, :show]
 

@@ -11,17 +11,13 @@ class OrdersController < ApplicationController
       product = Product.find(cart_item.product_id)
 
       OrderItem.create!(product: cart_item.product, quantity: cart_item.quantity, product_price: product.sale_price, order: order)
-      # sum += price
     end
-    # order.amount_cents = sum
-    # order.save!
     redirect_to new_order_payment_path(order)
   end
 
   def show
     @order = current_user.orders.where(state: 'paid').find(params[:id])
   end
-
 end
 
 
