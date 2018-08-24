@@ -1,0 +1,15 @@
+.wrapper-checkout {
+  display: flex;
+  justify-content: space-around;
+}
+
+.container-address {
+  flex:0 0 34%;
+  margin-top: 89px;
+  margin-bottom: 80px;
+}
+
+.container-item {
+  flex:0 0 41%;
+  margin-top: 50px;
+}

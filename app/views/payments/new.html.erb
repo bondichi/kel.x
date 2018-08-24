@@ -1,57 +1,69 @@
+<br>
 <div class="checkout-header">
-  <h1>Kel.X Checkout</h1>
+  <h1 style="font-size:59px;">Kel.X - Final Checkout</h1>
 </div>
 
-<ul class="list-group list-group-flush">
-  <li class="list-group-item">Delivery Address</li>
-  <li class="list-group-item"><%= @shipping.number %> </li>
-  <li class="list-group-item">
-  <%= @shipping.street %></li>
-  <li class="list-group-item"><%= @shipping.suburb %></li>
-  <li class="list-group-item"><%= @shipping.state %></li>
-</ul>
+<div class="wrapper-checkout">
+  <div class="container-address">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item" style="width:600px; font-weight: bold; font-size: 28px; padding: 44px 16px;">Customer Information </li>
+          <li class="list-group-item" style="width:600px; font-size: 20px;    padding: 23px 16px;">Name : <%= current_user.profile.first_name %> <%= current_user.profile.last_name %></li>
+          <li class="list-group-item" style="width:600px; font-size: 20px;    padding: 23px 16px;"> Delivery Address : <%= @shipping.number %>, <%= @shipping.street %>, <%= @shipping.suburb %>, <%= @shipping.suburb %>, <%= @shipping.state %></li>
+        </ul>
+      </div>
+    </div>
+  </div>
 
+<!-- PUT PROFILE INFO -->
 
-  <table class="table table-striped">
-    <thead class="thead-dark">
-      <tr>
-        <th scope="col">Image</th>
-        <th scope="col">Product</th>
-        <th scope="col">Quantity</th>
-        <th scope="col">Total Price</th>
-        <th scope="col"></th>
-      </tr>
-    </thead>
-    <tbody>
-    <% @cart_items.each do |cart_item| %>
-      <tr>
-        <th scope="row">Image <%= link_to "Show Product", product_path(cart_item.product_id) %></th>
-        <td><%= cart_item.product.description %></td>
-        <td><%= cart_item.quantity %></td>
-        <td><%= humanized_money_with_symbol(cart_item.product.sale_price * cart_item.quantity) %></td>
-        <td><%= link_to "Delete Cart Item", cart_item_path(cart_item), :method => :delete, :confirm => "Are you sure?", class: 'btn btn-danger' %></td>
-      </tr>
-    <% end %>
-      <tr class="table-warning">
-        <th scope="row">TOTAL </th>
-        <td></td>
-        <td></td>
-        <td><%= @sum_total %></td>
+  <div class="container-item">
+    <table class="table table-striped">
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-4">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Image</th>
+              <th scope="col">Product</th>
+              <th scope="col">Quantity</th>
+              <th scope="col">Total Price</th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @cart_items.each do |cart_item| %>
+              <tr>
+                <th scope="row"><img class= "cart-image" src=<%= cl_image_path cart_item.product.photo %> alt="Image of selected clothing item"></th>
+                <td><%= cart_item.product.description %></td>
+                <td><%= cart_item.quantity %></td>
+                <td><%= humanized_money_with_symbol(cart_item.product.sale_price * cart_item.quantity) %></td>
+                <td><%= link_to "Delete Cart Item", cart_item_path(cart_item), :method => :delete, :confirm => "Are you sure?", class: 'btn btn-danger' %></td>
+              </tr>
+            <% end %>
+            <tr class="table-warning">
+              <th scope="row" style="font-size:40px; text-align: right;">TOTAL: </th>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td><%= form_tag order_payments_path(@order) do %>
+                <article>
+                  <label class="amount" style="font-size:40px;">
+                    <span><%= humanized_money_with_symbol(@order.amount) %></span>
+                  </label>
+                  <% end %>
+                </article></td>
+              <td><%= @sum_total %></td>
+            </tr>
+          </tbody>
+        </div>
+      </div>
+    </table>
+  </div>
 
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+</div>
 
-
-
-<%= form_tag order_payments_path(@order) do %>
-  <article>
-    <label class="amount">
-      <span>Amount: <%= humanized_money_with_symbol(@order.amount) %></span>
-    </label>
-  </article>
-
+<div class="checkout_button" style="text-align:center;">
   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
     data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
     data-name="My Kelx Orders"
@@ -59,5 +71,6 @@
     data-description="Products <%= @order.id %>"
     data-amount="<%= @order.amount_cents %>"
     data-currency="<%= @order.amount.currency %>"></script>
+</div>
 
-<% end %>
+
