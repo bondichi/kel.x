@@ -1,35 +1,16 @@
 <div class="checkout-header">
   <h1>Kel.X Checkout</h1>
 </div>
-  <table class="table table-striped">
-    <thead class="thead-dark">
-      <tr>
-        <th scope="col">Delivery Address</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr> 
-        <td>
-          <%= @shipping.number %> <%= @shipping.street %> 
-        </td>
-      </tr>
-      <tr> 
-        <td>
-          <%= @shipping.suburb %>
-        </td>
-      </tr>
-      <tr> 
-        <td>
-          <%= @shipping.city %>
-        </td>
-      </tr>
-      <tr> 
-        <td>
-          <%= @shipping.state %>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+
+<ul class="list-group list-group-flush">
+  <li class="list-group-item">Delivery Address</li>
+  <li class="list-group-item"><%= @shipping.number %> </li>
+  <li class="list-group-item">
+  <%= @shipping.street %></li>
+  <li class="list-group-item"><%= @shipping.suburb %></li>
+  <li class="list-group-item"><%= @shipping.state %></li>
+</ul>
+
 
   <table class="table table-striped">
     <thead class="thead-dark">
@@ -78,5 +59,5 @@
     data-description="Products <%= @order.id %>"
     data-amount="<%= @order.amount_cents %>"
     data-currency="<%= @order.amount.currency %>"></script>
- 
+
 <% end %>
