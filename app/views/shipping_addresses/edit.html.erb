@@ -1,19 +1,38 @@
-<h1>Shipping Details</h1>
+<div class="shipping-heading">
+  <h1>Shipping Details</h1>
+</div>
 
 <div class="main-wrapper"">
-  <div class="container ">
+  <div class="container">
     <div class="row">
-      <div class="col-xs-12 col-sm-4">
+      <div class="col-xs-12 col-sm-4 col-sm-offset-4">
         <div class="form">
-          <%= simple_form_for([current_user.profile, @shipping_address]) do |f| %>
+          <%= simple_form_for([current_user.profile, @shipping_address], defaults: { input_html: { class: 'form-control' }}) do |f| %>
           <%= f.error_notification %>
-          <%= f.input :number %>
-          <%= f.input :street %>
-          <%= f.input :suburb %>
-          <%= f.input :city %>
-          <%= f.input :state %>
-          <%= f.input :special %>
-          <%= f.button :submit %>
+          <div class="form-group">
+            <%= f.input :number, label: 'Number' %>
+          </div>
+          <div class="form-group">
+            <%= f.input :street %>
+          </div>
+          <div class="form-group">
+            <%= f.input :suburb %>
+          </div>
+          <div class="form-group">
+            <%= f.input :post_code %>
+          </div>
+          <div class="form-group">
+            <%= f.input :city %>
+          </div>
+          <div class="form-group">
+            <%= f.input :state %>
+          </div>
+          <div class="form-group">
+            <%= f.input :special %>
+          </div>
+          <div class="form-group">
+            <%= f.button :submit %>
+          </div>
           <% end %>
           <%= form_tag orders_path do %>
           <%= submit_tag 'Checkout', class: 'btn btn-primary'%>
