@@ -30,13 +30,13 @@
           <div class="form-group">
             <%= f.input :special %>
           </div>
-          <div class="form-group">
-            <%= f.button :submit %>
+              <button class="btn btn-outline-secondary" type="button"><%= f.button :submit %></button>
+              <button class="btn btn-outline-secondary" type="button"><%= form_tag orders_path do %>
+          <%= submit_tag 'Checkout', class: 'btn btn-outline-secondary'%>
+          <% end %></button>
+          <% end %>
+            </div>
           </div>
-          <% end %>
-          <%= form_tag orders_path do %>
-          <%= submit_tag 'Checkout', class: 'btn btn-primary'%>
-          <% end %>
         </div>
       </div>
     </div>
