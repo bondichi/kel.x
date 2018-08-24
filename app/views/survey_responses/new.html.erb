@@ -35,8 +35,6 @@
 
     			<%= f.input :survey_response_id, as: :hidden %>
 
-
-
     			<%= f.select(:content) do %>
     			  <% question[:content]["options"].each do |c| -%>
     			    <%= content_tag(:option, c.first, value: c.last) %>
