@@ -14,10 +14,16 @@
 
   <body>
 
-    <!-- navbar -->
-    <%= render 'shared/navbar' %>
 
     <%= yield %>
+
+    <!-- navbar -->
+<!--     this if statement is for not showing navbar in survey page -->
+    <% if content_for?(:navbar) %>
+    <%= yield(:navbar) %>
+    <% else %>
+    <%= render 'shared/navbar' %>
+    <% end %>
 
 
     <!-- footer -->
