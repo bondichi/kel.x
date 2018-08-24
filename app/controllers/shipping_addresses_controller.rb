@@ -17,7 +17,7 @@ class ShippingAddressesController < ApplicationController
   private
 
   def shipping_address_params
-  	params.require(:shipping_address).permit(:number, :street, :suburb, :city, :state, :special)
+  	params.require(:shipping_address).permit(:number, :street, :suburb, :city, :state, :special, :post_code)
   end
 
   def set_shipping_address

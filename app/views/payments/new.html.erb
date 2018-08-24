@@ -9,8 +9,8 @@
       <div class="col-xs-12 col-sm-6 col-md-4">
         <ul class="list-group list-group-flush">
           <li class="list-group-item" style="width:600px; font-weight: bold; font-size: 28px; padding: 44px 16px;">Customer Information </li>
-          <li class="list-group-item" style="width:600px; font-size: 20px;    padding: 23px 16px;">Name : <%= current_user.profile.first_name %> <%= current_user.profile.last_name %></li>
-          <li class="list-group-item" style="width:600px; font-size: 20px;    padding: 23px 16px;"> Delivery Address : <%= @shipping.number %>, <%= @shipping.street %>, <%= @shipping.suburb %>, <%= @shipping.suburb %>, <%= @shipping.state %></li>
+          <li class="list-group-item" style="width:600px; font-size: 20px;    padding: 23px 16px;"><strong>Name :</strong> <%= current_user.profile.first_name %> <%= current_user.profile.last_name %></li>
+          <li class="list-group-item" style="width:600px; font-size: 20px;    padding: 23px 16px;"> <strong>Delivery Address :</strong> <%= @shipping.number %>, <%= @shipping.street %>, <%= @shipping.suburb %>, <%= @shipping.post_code %>, <%= @shipping.state %></li>
         </ul>
       </div>
     </div>
@@ -46,13 +46,24 @@
               <td></td>
               <td></td>
               <td></td>
-              <td><%= form_tag order_payments_path(@order) do %>
-                <article>
-                  <label class="amount" style="font-size:40px;">
-                    <span><%= humanized_money_with_symbol(@order.amount) %></span>
-                  </label>
-                  <% end %>
-                </article></td>
+              <td>
+                <%= form_tag order_payments_path(@order) do %>
+                  <article>
+                    <label class="amount" style="font-size:40px;">
+                      <span><%= humanized_money_with_symbol(@order.amount) %></span>
+                    </label>
+                  </article>
+                  <div class="checkout_button" style="text-align:center;">
+  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+    data-name="My Kelx Orders"
+    data-email="<%= current_user.email %>"
+    data-description="Products <%= @order.id %>"
+    data-amount="<%= @order.amount_cents %>"
+    data-currency="<%= @order.amount.currency %>"></script>
+</div>
+                <% end %>
+              </td>
               <td><%= @sum_total %></td>
             </tr>
           </tbody>
@@ -61,16 +72,6 @@
     </table>
   </div>
 
-</div>
-
-<div class="checkout_button" style="text-align:center;">
-  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-    data-name="My Kelx Orders"
-    data-email="<%= current_user.email %>"
-    data-description="Products <%= @order.id %>"
-    data-amount="<%= @order.amount_cents %>"
-    data-currency="<%= @order.amount.currency %>"></script>
 </div>
 
 
