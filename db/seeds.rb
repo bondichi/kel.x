@@ -73,6 +73,7 @@ q7 = Question.new(
   content: {
     type: "selection",
     question: "Are there any colours you don't like to wear?",
+    option_type: 'text',
     options: [
       ["Black and very dark shades", 1, {
         rules: {
@@ -124,6 +125,7 @@ q8 = Question.new(
   content: {
     type: "selection", 
     question: "How much would you spend on a shirt?",
+    option_type: 'text',
     options: [
       ["$20-50", 1, {
         rules: {
