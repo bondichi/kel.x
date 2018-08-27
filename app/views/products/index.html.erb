@@ -1,28 +1,60 @@
+<style>
+@import url('https://fonts.googleapis.com/css?family=Cabin" rel="stylesheet');
+</style>
 
-<div class="main-wrapper-product-index">
-  <div class="page-title">
-    <h1>Kelx Recommends for you</h1>
+<div class="wrapper-index">
+  <div class="page-title" style="padding-top: 94px; font-size: 57px;">
+    <h1>KELX RECOMMENDS FOR YOU</h1>
   </div>
 
-<div class="container">
-  <div class="row">
-    <% @products.each do |product| %>
-      <div class="col-xs-12 col-sm-6 col-md-4">
-        <%=  link_to(product) do %>
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= cl_image_path product.photo%>);">
-          <div class="card-category"><%= product.brand.name %></div>
-          <div class="card-description">
-            <p><%= product.description %></p>
-            <p><%=  humanized_money_with_symbol(product.sale_price) %></p>
+  <div class="shirts-title"">
+    <h2>SHIRTS</h2>
+  </div>
+
+  <div class="container" style="padding-top: 60px; padding-bottom: 30px;">
+    <div class="row">
+      <% @products[0..2].each do |product| %>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+          <%=  link_to(product) do %>
+          <div class="container-card">
+            <div class="card-index" style="background-image: url(<%= cl_image_path product.photo%>); height: 500px; box-shadow: 2px 2px 2px #c1bfbf;
+            ">
+              <div class="card-description">
+                <p style="font-family: 'Cabin', sans-serif; width: 339px;"><%=  (product.description) %> </p>
+                <p style="font-family: 'Cabin', sans-serif; font-size: 30px;"><%=  humanized_money_with_symbol(product.sale_price) %></p>
+              </div>
+            </div>
           </div>
+          <% end %>
         </div>
-        <% end %>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="pants-title">
+    <h2>PANTS</h2>
+  </div>
+
+  <div class="container" style="padding-top: 60px; padding-bottom: 206px;">
+    <div class="row">
+      <% @products[3..5].each do |product| %>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+          <%=  link_to(product) do %>
+          <div class="container-card">
+            <div class="card-index" style="background-image: url(<%= cl_image_path product.photo%>); height: 500px; box-shadow: 2px 2px 2px #c1bfbf;
+            ">
+              <div class="card-description" >
+                <p style="font-family: 'Cabin', sans-serif; width: 339px;"><%=  (product.description) %> </p>
+                <p style="font-family: 'Cabin', sans-serif; font-size: 30px;"><%=  humanized_money_with_symbol(product.sale_price) %></p>
+              </div>
+            </div>
+          </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
-
-
 
 
 
