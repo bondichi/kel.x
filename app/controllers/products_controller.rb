@@ -1,7 +1,12 @@
 class ProductsController < ApplicationController
 
   def index
-    @products = Product.all
+  	price_question = 
+  	max_price = 
+  	min_price =
+    @products = Product.all.select do | product |
+    	product.sale_price_cents
+    end
   end
 
   def show

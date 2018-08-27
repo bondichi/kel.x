@@ -69,8 +69,98 @@ q3 = Question.new(content: {type: "selection", question: "Which fit do you usual
 q4 = Question.new(content: {type: "selection", question: "Which style to do prefer?", options: [["Smart", 1], ["Smart-Casual", 2], ["Casual", 3]] })
 q5 = Question.new(content: {type: "selection", question: "How would you categorise your skin tone?", options: [["Very Fair", 1], ["Fair", 2], ["Medium - Olive", 3], ["Olive - Moderate Brown", 4], ["Medium Brown - Dark Brown", 5], ["Dark Brown", 6], ["Very Dark Brown- Black", 7]] })
 q6 = Question.new(content: {type: "selection", question: "Are there any issues you usually have with shirts?", options: [["Shirt collar too tight", 1], ["Shirt collar too loose", 2], ["Shirt length too long", 3], ["Shirt length too short", 4], ["Shirt sleeve too long", 5], ["Shirt sleeves too short", 6], ["Shirt sleeves too tight", 7], ["Shirt body too loose", 8], ["Shirt body too tight", 9], ["No Issues", 10]] })
-q7 = Question.new(content: {type: "selection", question: "Are there any colours you don't like to wear?", options: [["Black and very dark shades", 1], ["White & very pale colours", 2], ["Very bright shades", 3], ["Neutrals / earth tones", 4], ["Pastel shades - pale pink, lilac", 5],["None", 6]]})
-q8 = Question.new(content: {type: "selection", question: "How much would you spend on a shirt?", options: [["$20-50", 1], ["$50-$100", 2], ["$100-150", 3], ["$150 +", 4]] })
+
+q7 = Question.new(
+  content: {
+    type: "selection",
+    question: "Are there any colours you don't like to wear?",
+    options: [
+      ["Black and very dark shades", 1, {
+        rules: {
+          main_colour: {
+            excludes: ['black', 'navy']
+          }
+        }
+      }],
+      ["White & very pale colours", 2, {
+        rules: {
+          main_colour: {
+            excludes: ['white', 'light-blue', 'grey']
+          }
+        }
+      }],
+      ["Very bright shades", 3, {
+        rules: {
+          main_colour: {
+            excludes: ['pink', 'green', 'red']
+          }
+        }
+      }],
+      ["Neutrals / earth tones", 4, {
+        rules: {
+          main_colour: {
+            excludes: ['maroon', 'sand']
+          }
+        }
+      }],
+      ["Pastel shades - pale pink, lilac", 5, {
+        rules: {
+          main_colour: {
+            excludes: ['lilac', 'light-blue', 'pink' ]
+          }
+        }
+      }],
+      ["None", 6, {
+        rules: {
+          main_colour: {
+            excludes: []
+          }
+        }
+      }]
+    ]
+  }
+)
+
+q8 = Question.new(
+  content: {
+    type: "selection", 
+    question: "How much would you spend on a shirt?",
+    options: [
+      ["$20-50", 1, {
+        rules: {
+          sale_price_cents: {
+            greater: 2000,
+            lesser: 5000
+          }
+        }
+      }],
+      ["$50-$100", 2, {
+        rules: {
+          sale_price_cents: {
+            greater: 5000,
+            lesser: 10000
+          }
+        }
+      }], 
+      ["$100-150", 3, {
+        rules: {
+          sale_price_cents: {
+            greater: 100000,
+            lesser: 150000
+          }
+        }
+      }], 
+      ["$150 +", 4, {
+        rules: {
+          sale_price_cents: {
+            greater: 150000,
+            lesser: 1000000
+          }
+        }
+      }]
+    ] 
+  }
+)
 
 q1.survey = survey
 q1.save!
