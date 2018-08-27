@@ -1,4 +1,63 @@
 // Products Index Page
+.wrapper-index {
+  text-align: center;
+  font-weight: bold
+}
+
+.shirts-title {
+  margin-top: 93px;
+  font-weight: bold;
+}
+
+.pants-title  {
+  margin-top: 211px;
+  font-weight: bold;
+}
+
+.container-card {
+  position: relative;
+
+}
+
+.card-category {
+  position: absolute;
+  top: 508px;
+  left: 283px;
+  color: black;
+}
+
+.card-description {
+  top: 517px;
+  left: 10px;
+  width: 295px;
+}
+
+.card-index {
+   transition: transform .5s;
+
+  &::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: opacity 2s cubic-bezier(.165, .84, .44, 1);
+    box-shadow: 0 8px 17px 0 rgba(0, 0, 0, .2), 0 6px 20px 0 rgba(0, 0, 0, .15);
+    content: '';
+    opacity: 0;
+    z-index: -1;
+  }
+
+  &:hover,
+  &:focus {
+    transform: scale3d(1.006, 1.006, 4);
+
+
+    &::after {
+      opacity: 1;
+    }
+  }
+}
 
 
 
@@ -9,15 +68,20 @@
 }
 
 .product-page-container {
-  border: 1px dotted #C0B7B1;
-  height:450px;
-  margin-top: 100px;
+  background: white;
+  border: 1px #C0B7B1;
+  box-shadow: 0 0 3px 1px gray;
+  height: 700px;
+  width: 1200px;
+  margin-top: 120px;
+  font-size: 23px;
 }
 
 .main-image {
-  // height: 400px;
-  width:300px;
-  // height:450px;
+  width: 405px;
+  height: 505px;
+  margin-left: 20px;
+  margin-top: 38px;
 }
 
 .product-page-img {
@@ -37,18 +101,14 @@
   position: absolute;
   top: 20px;
   left: 20px;
+  margin-top: 33px;
 }
 
 .add-to-cart {
   position: absolute;
-  bottom: 20px;
+  bottom: -156px;
   right: 20px;
-}
 
-.product-price {
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
 }
 
 .back-to-recs {
@@ -64,8 +124,20 @@
   // text-align: center;
 }
 
-h5 {
-  font-style: italic;
+.product-description h4{
+  font-size: 43px;
 }
 
+.product-description h5 {
+  font-style: italic;
+  font-size: 30px;
+}
+
+.product-price {
+  position: absolute;
+  bottom: -156px;
+  left: 20px;
+  margin-top: 10px;
+  font-size: 47px;
+}
 
