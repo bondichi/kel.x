@@ -1,54 +1,54 @@
 require 'csv'
 
-csv_options = { col_sep: ',', quote_char: '"', headers: :first_row }
-filepath    = 'db/products.csv'
+# csv_options = { col_sep: ',', quote_char: '"', headers: :first_row }
+# filepath    = 'db/products.csv'
 
-puts "Creating 3 brands"
+# puts "Creating 3 brands"
 
- Brand.create(name: 'POLO RALPH LAUREN')
- Brand.create(name: 'NEW LOOK')
- Brand.create(name: 'PULL & BEAR')
+#  Brand.create(name: 'POLO RALPH LAUREN')
+#  Brand.create(name: 'NEW LOOK')
+#  Brand.create(name: 'PULL & BEAR')
 
-CSV.foreach(filepath, csv_options) do |row|
-  puts "Making a Product"
-  Product.create!(
-  vpn: row['vpn'],
-  style: row['style'],
-  sku: row['sku'],
-  barcode: 0,
-  size: row['size'],
-  neck_circumference: 0,
-  shoulder_width: 0,
-  arm_length: 0,
-  center_back: 0,
-  chest_width: 0,
-  waist_circumference: 0,
-  inner_leg: 0,
-  outer_leg: 0,
-  thigh_circumference: 0,
-  glutes: 0,
-  cost_price: 0,
-  rrp: row['rrp'].to_i,
-  sale_price: 0,
-  photo_id: 0,
-  brand_id: row['brand_id'].to_i,
-  created_at: 0,
-  updated_at: 0,
-  description: row['description'],
-  category: row['category'],
-  cost_price_cents: 0,
-  rrp_cents: row['rrp_cents'].to_i,
-  sale_price_cents: row['sale_price_cents'].to_i,
-  vendor: row['vendor'],
-  style_number: row['style_number'],
-  size_code: row['size_code'],
-  sub_category: row['sub_category'],
-  fabric_composition: row['fabric_composition'],
-  silhouette: row['silhouette'],
-  main_colour: row['main_colour'],
-  print_wash: row['print_wash'],
-  remote_photo_url: row['remote_photo_url'])
-end
+# CSV.foreach(filepath, csv_options) do |row|
+#   puts "Making a Product"
+#   Product.create!(
+#   vpn: row['vpn'],
+#   style: row['style'],
+#   sku: row['sku'],
+#   barcode: 0,
+#   size: row['size'],
+#   neck_circumference: 0,
+#   shoulder_width: 0,
+#   arm_length: 0,
+#   center_back: 0,
+#   chest_width: 0,
+#   waist_circumference: 0,
+#   inner_leg: 0,
+#   outer_leg: 0,
+#   thigh_circumference: 0,
+#   glutes: 0,
+#   cost_price: 0,
+#   rrp: row['rrp'].to_i,
+#   sale_price: 0,
+#   photo_id: 0,
+#   brand_id: row['brand_id'].to_i,
+#   created_at: 0,
+#   updated_at: 0,
+#   description: row['description'],
+#   category: row['category'],
+#   cost_price_cents: 0,
+#   rrp_cents: row['rrp_cents'].to_i,
+#   sale_price_cents: row['sale_price_cents'].to_i,
+#   vendor: row['vendor'],
+#   style_number: row['style_number'],
+#   size_code: row['size_code'],
+#   sub_category: row['sub_category'],
+#   fabric_composition: row['fabric_composition'],
+#   silhouette: row['silhouette'],
+#   main_colour: row['main_colour'],
+#   print_wash: row['print_wash'],
+#   remote_photo_url: row['remote_photo_url'])
+# end
 
 puts "Deleting previous survey and question seeds"
 
