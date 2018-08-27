@@ -7,44 +7,55 @@
   <p></p>
   <% end %>
 
+<div class="wrapper">
+  <div class="container-survey">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+        <% @survey_response.unanswered_questions.each do |question| %>
+          <div class="survey_form">
+          	<% if question[:content]["type"] == "standard"  %>
+          	  <%= simple_form_for [question, Answer.new(survey_response: @survey_response)] do |f| %>
+                <div class="question">
+            			<ul>
+            				<%= question[:content]["question"] %>
+            			</ul>
+                </div>
+                <div class="input">
+            			<%= f.input :survey_response_id, as: :hidden %>
+                </div>
+          			<%= f.text_field :content %>
+          	  <% end %>
+              <!-- select questions  -->
+          	<% else %>
+          	  <%= simple_form_for [question, Answer.new(survey_response: @survey_response)] do |f| %>
+          			<ul>
+          				<%= question[:content]["question"] %>
+          			</ul>
+                <div class="options">
+                  <ul class = "list-unstyled">
 
+          			<%= f.input :survey_response_id, as: :hidden %>
+                <%= f.input :content, as: :radio_buttons, label: false do    %>
+                  <% question[:content]["options"].each_with_index do |c, i| %>
+                    <li class= "survey-answer-item">
+                    <%= f.radio_button(:content, c.second, class: "survey-answer-radio") %>
+                    <%= f.label c.first, class: "form-check-label survey-answer-label", for: "answer_content_#{i+1}" %>
+                    </li>
+                  <% end %>
+                <% end %>
+
+                </ul>
+                </div>
+                <%= submit_tag("Submit") %>
+          	  <% end %>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
 <div class="recommendation_button" style="text-align: center;">
   <%=link_to "Recommendations", products_path, class: 'btn btn-default' %>
 </div>
-
-<div class="wrapper">
-  <% @survey_response.unanswered_questions.each do |question| %>
-    <div class="survey_form">
-    	<% if question[:content]["type"] == "standard"  %>
-    	  <%= simple_form_for [question, Answer.new(survey_response: @survey_response)] do |f| %>
-          <div class="question">
-      			<ul>
-      				<%= question[:content]["question"] %>
-      			</ul>
-          </div>
-          <div class="input">
-      			<%= f.input :survey_response_id, as: :hidden %>
-          </div>
-    			<%= f.text_field :content %>
-    	  <% end %>
-    	<% else %>
-    	  <%= simple_form_for [question, Answer.new(survey_response: @survey_response)] do |f| %>
-    			<ul>
-    				<%= question[:content]["question"] %>
-    			</ul>
-
-    			<%= f.input :survey_response_id, as: :hidden %>
-
-    			<%= f.select(:content) do %>
-    			  <% question[:content]["options"].each do |c| -%>
-    			    <%= content_tag(:option, c.first, value: c.last) %>
-    			  <% end %>
-    			  <%= submit_tag("Submit") %>
-    			<% end %>
-    	  <% end %>
-      <% end %>
-    </div>
-  <% end %>
-</div>
-
 
