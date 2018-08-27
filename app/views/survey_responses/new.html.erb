@@ -10,7 +10,7 @@
 <div class="wrapper">
   <div class="container-survey">
     <div class="row">
-      <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+      <div class="col-xs-12 col-sm-8 col-sm-offset-2">
         <% @survey_response.unanswered_questions.each do |question| %>
           <div class="survey_form">
           	<% if question[:content]["type"] == "standard"  %>
@@ -31,22 +31,27 @@
           			<ul>
           				<%= question[:content]["question"] %>
           			</ul>
-                <div class="options">
-                  <ul class = "list-unstyled">
-
-          			<%= f.input :survey_response_id, as: :hidden %>
-                <%= f.input :content, as: :radio_buttons, label: false do    %>
-                  <% question[:content]["options"].each_with_index do |c, i| %>
-                    <li class= "survey-answer-item">
-                    <%= f.radio_button(:content, c.second, class: "survey-answer-radio") %>
-                    <%= f.label c.first, class: "form-check-label survey-answer-label", for: "answer_content_#{i+1}" %>
-                    </li>
+                <ul class = "list-unstyled">
+            			<%= f.input :survey_response_id, as: :hidden %>
+                  <%= f.input :content, as: :radio_buttons, label: false do    %>
+                    <% question[:content]["options"].each_with_index do |c, i| %>
+                    <% if question[:content][:option_type] == 'text' %>
+                      <li class= "survey-answer-item">
+                        <%= f.radio_button(:content, c.second, class: "survey-answer-radio") %><%= f.label c.first, class: "form-check-label survey-answer-label", for: "answer_content_#{i+1}" %>
+                      </li>
+                    <% else %>
+                      <li class= "survey-answer-item">
+                        <%= f.radio_button(:content, c.second, class: "survey-answer-radio") %><%= f.label c.first, class: "form-check-label survey-answer-label", for: "answer_content_#{i+1}" do %>
+                          <div class="survey-answer-image">
+                            <%= image_tag "/assets/#{c.first}", height: 150, width: 200 %>
+                          </div>
+                        <% end %>
+                      </li>
+                      <% end %>
+                    <% end %>
                   <% end %>
-                <% end %>
-
                 </ul>
-                </div>
-                <%= submit_tag("Submit") %>
+                <%= f.submit("Submit", class: "btn btn-default" ) %>
           	  <% end %>
             <% end %>
           </div>
@@ -54,8 +59,9 @@
       </div>
     </div>
   </div>
+  <div class="recommendation_button" style="text-align: center;">
+  <%=link_to "Recommendations", products_path, class: "btn btn-default" %>
+  </div>
 </div>
-<div class="recommendation_button" style="text-align: center;">
-  <%=link_to "Recommendations", products_path, class: 'btn btn-default' %>
-</div>
+
 

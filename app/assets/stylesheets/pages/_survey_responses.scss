@@ -20,16 +20,15 @@
   margin-bottom: 8px;
 }
 
-.survey_form {
-  border: 1px dotted grey;
-}
-
 .survey-answer-label {
-  background-color: pink;
+  background-color: #d1d0cc;
   display: block;
-  border: 1px dotted grey;
+  border: 1px dotted #d1d0cc;
   border-radius: 2px;
-  margin: 20px;
+  margin: 15px;
+  padding: 10px;
+  font-size: 25px;
+  opacity: 0.5;
 }
 
 .survey-answer-radio {
@@ -37,11 +36,20 @@
 }
 
 .survey-answer-radio:checked ~ label {
-  background-color:yellow;
+  background-color: #d1d0cc;
+  opacity: 0.8;
+  border: 2px dashed #d1d0cc;
 }
 
 .survey-answer-item {
   display: inline-block;
+}
+
+.survey-answer-image {
+  // height: 300px;
+  // width: 200px;
+  // border: 1px dotted #d1d0cc;
+  // background-image: cover;
 }
 
 
