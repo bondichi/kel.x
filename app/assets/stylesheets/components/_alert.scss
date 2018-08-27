@@ -3,9 +3,15 @@
 * ------------------------------------- */
 
 .alert {
+	position: fixed;
+	top: $nav-bar-height;
+	left: 45px;
+	right: 45px;
+	opacity: 0.9;
   margin: 0;
   text-align: center;
   color: white;
+  z-index: $zindex-navbar;
 }
 .alert-info {
   background: $green;
