@@ -9,7 +9,7 @@
 .survey_form  {
   text-align: center;
   height: 100vh;
-  font-size: 50px;
+  font-size: 30px;
   justify-content: center;
   letter-spacing: 1px;
   margin-top: 200px;
@@ -19,3 +19,29 @@
   padding: 8px;
   margin-bottom: 8px;
 }
+
+.survey_form {
+  border: 1px dotted grey;
+}
+
+.survey-answer-label {
+  background-color: pink;
+  display: block;
+  border: 1px dotted grey;
+  border-radius: 2px;
+  margin: 20px;
+}
+
+.survey-answer-radio {
+  display: none;
+}
+
+.survey-answer-radio:checked ~ label {
+  background-color:yellow;
+}
+
+.survey-answer-item {
+  display: inline-block;
+}
+
+
