@@ -9,7 +9,7 @@
 .survey_form  {
   text-align: center;
   height: 100vh;
-  font-size: 50px;
+  font-size: 30px;
   justify-content: center;
   letter-spacing: 1px;
   margin-top: 200px;
@@ -19,3 +19,37 @@
   padding: 8px;
   margin-bottom: 8px;
 }
+
+.survey-answer-label {
+  background-color: #d1d0cc;
+  display: block;
+  border: 1px dotted #d1d0cc;
+  border-radius: 2px;
+  margin: 15px;
+  padding: 10px;
+  font-size: 25px;
+  opacity: 0.5;
+}
+
+.survey-answer-radio {
+  display: none;
+}
+
+.survey-answer-radio:checked ~ label {
+  background-color: #d1d0cc;
+  opacity: 0.8;
+  border: 2px dashed #d1d0cc;
+}
+
+.survey-answer-item {
+  display: inline-block;
+}
+
+.survey-answer-image {
+  // height: 300px;
+  // width: 200px;
+  // border: 1px dotted #d1d0cc;
+  // background-image: cover;
+}
+
+

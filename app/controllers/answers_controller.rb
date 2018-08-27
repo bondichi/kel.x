@@ -1,6 +1,10 @@
+require 'json'
+
 class AnswersController < ApplicationController
   def create
-  	Answer.create(question_id: params[:question_id], content: answer_params[:content], survey_response_id: answer_params[:survey_response_id])
+    content_data = Question.find(params[:question_id]).content["options"][answer_params[:content].to_i-1][2] || Question.find(params[:question_id]).content["options"][answer_params[:content].to_i-1][0]
+
+  	Answer.create(question_id: params[:question_id], content: content_data, survey_response_id: answer_params[:survey_response_id])
   	@survey_response = SurveyResponse.find(answer_params[:survey_response_id])
   	unless @survey_response.unanswered_questions.empty?
   		redirect_back fallback_location: '/products'
