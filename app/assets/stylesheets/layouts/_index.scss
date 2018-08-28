@@ -1,5 +1,3 @@
-// Import your layouts CSS files here.
-// Examples:
-// @import "dashboard";
-// @import "profile";
-// @import "map";
+// Main site scss refers to the application.html.erb file in views.
+
+@import "layouts/main-site.scss";
