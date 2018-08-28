@@ -1,3 +1,11 @@
+.shopping-cart-page-wrapper {
+  margin: 100px 20px 0;
+}
+
+.cart-table {
+  margin-top: 50px;
+}
+
 .cart-image-container {
   background-size: contain;
 }
@@ -7,9 +15,11 @@
   width: 80px;
 }
 
-
 .cart-navigations {
   display: flex;
   justify-content: space-between;
+  margin: 100px 20px;
 }
+
+
 

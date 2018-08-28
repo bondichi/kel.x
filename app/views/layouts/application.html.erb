@@ -7,27 +7,36 @@
   </head>
 
   <body>
+    <!-- This is the generic wrapper for the entire body including header, page content and footer -->
+    <div class="generic-page-wrapper">
+      <!-- This is the generic wrapper for header and page content Excludes footer-->
+      <div class="generic-page-wrapper-content">
+
 
     <!-- navbar -->
-<!--     this if statement is for not showing navbar in survey page -->
-    <% if content_for?(:navbar) %>
-    <%= yield(:navbar) %>
-    <% else %>
-    <%= render 'shared/navbar' %>
-    <% end %>
+    <!--     this if statement is for not showing navbar in survey page -->
+      <% if content_for?(:navbar) %>
+        <%= yield(:navbar) %>
+      <% else %>
+        <%= render 'shared/navbar' %>
+      <% end %>
+      <!-- This is for alerts -->
+      <%= render 'shared/flashes' %>
 
-    <%= render 'shared/flashes' %>
-    <%= yield %>
+      <%= yield %>
 
-    <!-- footer -->
-<!--     this if statement is for not showing footer in survey page -->
-    <% if content_for?(:footer) %>
-    <%= yield(:footer) %>
-    <% else %>
-    <%= render 'shared/footer' %>
-    <% end %>
-
-
+      <!-- footer -->
+      <!-- this if statement is for not showing footer in survey page -->
+    </div>
+      <!-- This is a generic wrapper which will allow us to target footer and ensure remains fixed on all pages -->
+      <div class="generic-page-wrapper-footer">
+        <% if content_for?(:footer) %>
+          <%= yield(:footer) %>
+        <% else %>
+          <%= render 'shared/footer' %>
+        <% end %>
+      </div>
+    </div>
 
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>

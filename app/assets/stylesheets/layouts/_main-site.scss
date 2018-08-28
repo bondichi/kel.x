@@ -1,0 +1,17 @@
+// Styling to make sure the footer stays stuck to bottom of each page
+
+.generic-page-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.generic-page-wrapper-content {
+
+}
+
+.generic-page-wrapper-footer {
+  margin-top: auto;
+  margin-bottom: 0;
+
+}

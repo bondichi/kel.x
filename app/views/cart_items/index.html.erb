@@ -1,47 +1,49 @@
-<div class="container">
-  <h1>Kel-X Shopping Cart</h1>
-  <p>All Items in your cart</p>
-  <table class="table table-striped">
-    <thead class="thead-dark">
-      <tr>
-        <th scope="col">Item</th>
-        <th scope="col">Description</th>
-        <th scope="col">Quantity</th>
-        <th scope="col">Total Price</th>
-        <th scope="col"></th>
-      </tr>
-    </thead>
-    <tbody>
-    <% @cart_items.each do |cart_item| %>
-      <tr>
-        <th scope="row">
-          <%=  link_to product_path(cart_item.product_id) do %>
-            <div class="cart-image-container">
-              <img class= "cart-image" src=<%= cl_image_path cart_item.product.photo %> alt="Image of selected clothing item">
-            </div>
-          <% end %>
-        </th>
-        <td><%= cart_item.product.description %></td>
-        <td><%= cart_item.quantity %></td>
-        <td><%= humanized_money_with_symbol(cart_item.product.sale_price * cart_item.quantity) %></td>
-        <td><%= link_to "Delete Cart Item", cart_item_path(cart_item), :method => :delete, :confirm => "Are you sure?", class: 'btn btn-danger' %></td>
-      </tr>
-    <% end %>
-      <tr class="table-warning">
-        <th scope="row"> SUM TOTAL </th>
-        <td></td>
-        <td></td>
-        <td><%= humanized_money_with_symbol(@sum_total) %></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+<div class="shopping-cart-page-wrapper">
+  <h2>Your Kel-X Shopping Cart</h2>
+
+  <div class="cart-table">
+    <table class="table table-striped">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Item</th>
+          <th scope="col">Description</th>
+          <th scope="col">Quantity</th>
+          <th scope="col">Total Price</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+      <% @cart_items.each do |cart_item| %>
+        <tr>
+          <th scope="row">
+            <%=  link_to product_path(cart_item.product_id) do %>
+              <div class="cart-image-container">
+                <img class= "cart-image" src=<%= cl_image_path cart_item.product.photo %> alt="Image of selected clothing item">
+              </div>
+            <% end %>
+          </th>
+          <td><%= cart_item.product.description %></td>
+          <td><%= cart_item.quantity %></td>
+          <td><%= humanized_money_with_symbol(cart_item.product.sale_price * cart_item.quantity) %></td>
+          <td><%= link_to "Delete Cart Item", cart_item_path(cart_item), :method => :delete, :confirm => "Are you sure?", class: 'btn btn-danger' %></td>
+        </tr>
+      <% end %>
+        <tr class="table-warning">
+          <th scope="row"> SUM TOTAL </th>
+          <td></td>
+          <td></td>
+          <td><%= humanized_money_with_symbol(@sum_total) %></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
   <div class="cart-navigations">
 
-  <%= link_to('Back to Recommendations', products_path, class: 'btn btn-primary') %>
+  <%= link_to('Back to Recommendations', products_path, class: 'btn btn-default') %>
 
-  <%= link_to('Checkout', edit_profile_shipping_address_path, class: 'btn btn-primary') %>
+  <%= link_to('Checkout', edit_profile_shipping_address_path, class: 'btn btn-default') %>
 
   </div>
 </div>
