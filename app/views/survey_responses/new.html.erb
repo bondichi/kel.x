@@ -35,7 +35,7 @@
             			<%= f.input :survey_response_id, as: :hidden %>
                   <%= f.input :content, as: :radio_buttons, label: false do    %>
                     <% question[:content]["options"].each_with_index do |c, i| %>
-      
+
                     <% if question[:content]["option_type"] == 'text' %>
                       <li class= "survey-answer-item">
                         <%= f.radio_button(:content, c.second, class: "survey-answer-radio") %><%= f.label c.first, class: "form-check-label survey-answer-label", for: "answer_content_#{i+1}" %>
@@ -44,7 +44,7 @@
                       <li class= "survey-answer-item">
                         <%= f.radio_button(:content, c.second, class: "survey-answer-radio") %><%= f.label c.first, class: "form-check-label survey-answer-label", for: "answer_content_#{i+1}" do %>
                           <div class="survey-answer-image">
-                            <%= image_tag "/assets/#{c.first}", height: 150, width: 200 %>
+                            <%= image_tag "/assets/#{c.first}", height: 250, width: 200 %>
                           </div>
                         <% end %>
                       </li>
