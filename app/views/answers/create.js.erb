@@ -1,10 +1,18 @@
+function hide() {
+	question.style.display = 'none';
+	console.log("hello")
+}
+
 question = document.getElementById('new_answer_<%= @question_id %>');
 
-question.style.display = 'none';
+question.classList.add('animated');
+question.classList.add('zoomOutRight');
+setTimeout(hide, 800);
+// question.style.display = 'none';
 
 
 if (<%= @last_question%>) {
 
   window.location.replace('/products');
-  
+
 }
