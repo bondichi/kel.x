@@ -28,11 +28,10 @@
       </tr>
     <% end %>
       <tr class="table-warning">
-        <th scope="row">TOTAL </th>
+        <th scope="row"> SUM TOTAL </th>
         <td></td>
         <td></td>
-        <td><%= @sum_total %></td>
-
+        <td><%= humanized_money_with_symbol(@sum_total) %></td>
         <td></td>
       </tr>
     </tbody>
