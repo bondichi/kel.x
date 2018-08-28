@@ -34,6 +34,8 @@
 
 .card-index {
    transition: transform .5s;
+   background-repeat: no-repeat;
+   // background-size: cover;
 
   &::after {
     position: absolute;

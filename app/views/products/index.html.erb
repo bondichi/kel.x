@@ -7,7 +7,6 @@
     <h1>KELX RECOMMENDS FOR YOU</h1>
   </div>
 
-<<<<<<< HEAD
   <div class="shirts-title"">
     <h2>SHIRTS</h2>
   </div>
@@ -18,7 +17,7 @@
         <div class="col-xs-12 col-sm-6 col-md-4">
           <%=  link_to(product) do %>
           <div class="container-card">
-            <div class="card-index" style="background-image: url(<%= cl_image_path product.photo%>); height: 500px; box-shadow: 2px 2px 2px #c1bfbf;
+            <div class="card-index" style="background-image: url(<%= cl_image_path(product.photo, :width=>360, :height=>500, :gravity=>"face:center", :crop=>"fill")%>); height: 500px; box-shadow: 2px 2px 2px #c1bfbf;
             ">
               <div class="card-description">
                 <p style="font-family: 'Cabin', sans-serif; width: 339px;"><%=  (product.description) %> </p>
@@ -42,7 +41,7 @@
         <div class="col-xs-12 col-sm-6 col-md-4">
           <%=  link_to(product) do %>
           <div class="container-card">
-            <div class="card-index" style="background-image: url(<%= cl_image_path product.photo%>); height: 500px; box-shadow: 2px 2px 2px #c1bfbf;
+            <div class="card-index" style="background-image: url(<%= cl_image_path(product.photo, :width=>360, :height=>500, :gravity=>"auto", :crop=>"fill")%>); height: 500px; box-shadow: 2px 2px 2px #c1bfbf;
             ">
               <div class="card-description" >
                 <p style="font-family: 'Cabin', sans-serif; width: 339px;"><%=  (product.description) %> </p>
