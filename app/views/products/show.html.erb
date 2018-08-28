@@ -22,13 +22,14 @@
               <p>Fabric Composition: <%= @product.fabric_composition %></p>
             </div>
             <div class="product-price">
-              <p><strong>Sale Price: </strong><%=  humanized_money_with_symbol(@product.sale_price) %></p>
+              <p><strong>Price: </strong><%=  humanized_money_with_symbol(@product.sale_price) %></p>
 
             </div>
 
             <div class= "add-to-cart">
               <%= simple_form_for @cart_item do |f| %>
                 <%= f.input :product_id, as: :hidden %>
+                <%= image_tag "shopping-cart.png", height: 50 %>
                 <%= f.button :submit, "Add to cart" %>
               <% end %>
             </div>
