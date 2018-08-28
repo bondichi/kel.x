@@ -13,7 +13,7 @@
 
   <div class="container" style="padding-top: 60px; padding-bottom: 30px;">
     <div class="row">
-    <% @filtered_products.sample(3).each do |product| %>
+    <% @filtered_products_tops.sample(3).each do |product| %>
         <div class="col-xs-12 col-sm-6 col-md-4">
           <%=  link_to(product) do %>
           <div class="container-card">
@@ -37,7 +37,7 @@
 
   <div class="container" style="padding-top: 60px; padding-bottom: 206px;">
     <div class="row">
-      <% @filtered_products.sample(3).each do |product| %>
+      <% @filtered_products_bottoms.sample(3).each do |product| %>
         <div class="col-xs-12 col-sm-6 col-md-4">
           <%=  link_to(product) do %>
           <div class="container-card">
