@@ -1,0 +1,10 @@
+question = document.getElementById('new_answer_<%= @question_id %>');
+
+question.style.display = 'none';
+
+
+if (<%= @last_question%>) {
+
+  window.location.replace('/products');
+  
+}

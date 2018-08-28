@@ -6,11 +6,19 @@ class AnswersController < ApplicationController
 
   	Answer.create(question_id: params[:question_id], content: content_data, survey_response_id: answer_params[:survey_response_id])
   	@survey_response = SurveyResponse.find(answer_params[:survey_response_id])
-  	unless @survey_response.unanswered_questions.empty?
-  		redirect_back fallback_location: '/products'
-  	else
-  		redirect_to '/products'
-  	end
+  	@question_id = params[:question_id]
+
+    @last_question = @survey_response.unanswered_questions.empty?
+    # binding.pry
+    respond_to do |format|
+      unless @last_question
+        format.html { redirect_back fallback_location: '/products' }
+        format.js
+    	else
+    		format.html { redirect_to '/products' }
+        format.js 
+    	end
+    end
   end
 
   private

@@ -11,10 +11,10 @@
   <div class="container-survey">
     <div class="row">
       <div class="col-xs-12 col-sm-8 col-sm-offset-2">
-        <% @survey_response.unanswered_questions.each do |question| %>
-          <div class="survey_form">
+        <% @survey_response.unanswered_questions.each do |question, q_i| %>
+          <div class="survey_form" id="new_answer_<%= question.id %>">
           	<% if question[:content]["type"] == "standard"  %>
-          	  <%= simple_form_for [question, Answer.new(survey_response: @survey_response)] do |f| %>
+          	  <%= simple_form_for [question, Answer.new(survey_response: @survey_response)], remote: true do |f| %>
                 <div class="question">
             			<ul>
             				<%= question[:content]["question"] %>
@@ -27,7 +27,7 @@
           	  <% end %>
               <!-- select questions  -->
           	<% else %>
-          	  <%= simple_form_for [question, Answer.new(survey_response: @survey_response)] do |f| %>
+          	  <%= simple_form_for [question, Answer.new(survey_response: @survey_response)] , remote: true do |f,| %>
           			<ul>
           				<%= question[:content]["question"] %>
           			</ul>
@@ -38,11 +38,11 @@
       
                     <% if question[:content]["option_type"] == 'text' %>
                       <li class= "survey-answer-item">
-                        <%= f.radio_button(:content, c.second, class: "survey-answer-radio") %><%= f.label c.first, class: "form-check-label survey-answer-label", for: "answer_content_#{i+1}" %>
+                        <%= f.radio_button(:content, c.second, class: "survey-answer-radio", id: "answer_#{question.id}_#{i}") %><%= f.label c.first, class: "form-check-label survey-answer-label", for: "answer_#{question.id}_#{i}" %>
                       </li>
                     <% else %>
                       <li class= "survey-answer-item">
-                        <%= f.radio_button(:content, c.second, class: "survey-answer-radio") %><%= f.label c.first, class: "form-check-label survey-answer-label", for: "answer_content_#{i+1}" do %>
+                        <%= f.radio_button(:content, c.second, class: "survey-answer-radio",  id: "answer_#{question.id}_#{i}") %><%= f.label c.first, class: "form-check-label survey-answer-label", for: "answer_#{question.id}_#{i}" do %>
                           <div class="survey-answer-image">
                             <%= image_tag "/assets/#{c.first}", height: 150, width: 200 %>
                           </div>

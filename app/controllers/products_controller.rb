@@ -1,29 +1,10 @@
 class ProductsController < ApplicationController
-
-# look through all the questions to find ones with rules
-
   def index
   	survey_response = SurveyResponse.find_by(profile_id: current_user.id)
   	
   	answers_for_filter = Answer.where(survey_response_id: survey_response.id).select { |answer| answer.content.class == Hash }
-
-  	# @products = Product.all
-  	@filtered_products = filter_products_all(Product.all, answers_for_filter)
-  	# raise
-  	# price_question = Answer.where(survey_response_id: survey_response.id).find_by(question_id: 17)
-  	# max_price = price_question.content["rules"]["sale_price_cents"]["lesser"] 
-  	# min_price = price_question.content["rules"]["sale_price_cents"]["greater"] 
-   #  @products = Product.all.select do | product |
-   #  	product.sale_price_cents > min_price && product.sale_price_cents < max_price
-   #  end
-    
-   #  colour_question = Answer.where(survey_response_id: survey_response.id).find_by(question_id: 16)
-   #  excludes = colour_question.content["rules"]["main_colour"]["excludes"]
-   #  @products = Product.all.reject do | product |
-   #  	# raise
-   #  	excludes.any? { |colour| colour.capitalize == product.main_colour }
-   #  end	
-   #  # raise
+  	@filtered_products_tops = filter_products_all(Product.where(category: "TOPS"), answers_for_filter)
+  	@filtered_products_bottoms = filter_products_all(Product.where(category: "BOTTOMS"), answers_for_filter)
   end
 
   def show
@@ -54,7 +35,7 @@ class ProductsController < ApplicationController
   	excludes = answer.content["rules"]["main_colour"]["excludes"]
     
     products.reject do | product |
-    	excludes.any? { |colour| colour.capitalize == product.main_colour }
+    	excludes.any? { |colour| colour == product.main_colour }
     end
   end
 
