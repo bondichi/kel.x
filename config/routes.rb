@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
   resources :surveys, only: [:show] do
-  	resources :survey_responses, only: [:new, :create]
+  	resources :survey_responses, only: [:new, :edit]
   end
 
   resources :questions, only:[:show] do

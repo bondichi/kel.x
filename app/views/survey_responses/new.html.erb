@@ -29,7 +29,7 @@
           	  <% end %>
             <% else %>
               <!-- select questions below  -->
-          	  <%= simple_form_for [question, Answer.new(survey_response: @survey_response)], remote: true, html: { id: "form_answer_#{question.id}" } do |f,| %>
+          	  <%= simple_form_for [question, Answer.new(survey_response: @survey_response)], remote: true, html: { id: "form_answer_#{question.id}" } do |f| %>
               <!-- Header and Question  -->
                 <h1>
                   <%= question[:content]["header"] %>

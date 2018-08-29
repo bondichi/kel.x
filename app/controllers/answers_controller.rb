@@ -9,7 +9,7 @@ class AnswersController < ApplicationController
   	@question_id = params[:question_id]
 
     @last_question = @survey_response.unanswered_questions.empty?
-    # binding.pry
+    
     respond_to do |format|
       unless @last_question
         format.html { redirect_back fallback_location: '/products' }
