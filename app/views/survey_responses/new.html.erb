@@ -12,7 +12,7 @@
   <div class="container-survey">
     <div class="row">
       <div class="col-xs-12 col-sm-8 col-sm-offset-2">
-        <% @survey_response.unanswered_questions.each do |question, q_i| %>
+        <% @survey.questions.each do |question, q_i| %>
           <div class="survey_form" id="form_wrapper_<%= question.id %>">
             <!-- standard questions below  -->
           	<% if question[:content]["type"] == "standard"  %>
@@ -75,5 +75,4 @@
   <%=link_to "Recommendations", products_path, class: "btn btn-default" %>
   </div>
 </div>
-
 

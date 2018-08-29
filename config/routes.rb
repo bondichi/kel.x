@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
-  get 'answers/create'
  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   devise_for :users
   root to: "pages#home"
   resources :surveys, only: [:show] do
-  	resources :survey_responses, only: [:new, :edit]
+  	resources :survey_responses, only: [:new, :destroy]
   end
 
   resources :questions, only:[:show] do

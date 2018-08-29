@@ -2,6 +2,8 @@ class ProfilesController < ApplicationController
   before_action :set_profile, only: [:edit, :update]
 
   def edit
+    @survey = Survey.last
+    @survey_response = SurveyResponse.find_or_create_by!(survey: @survey, profile: current_user.profile)
   end
 
   def update
