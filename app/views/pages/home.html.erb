@@ -1,9 +1,11 @@
-<div class="banner" style="background-image: url('https://source.unsplash.com/eGHlWS-zQSM/1300x900');">
+<div class="banner" style="background-image: url('https://source.unsplash.com/eGHlWS-zQSM/1680x1100');">
   <div class="banner-content">
   <h1 style="color: black; font-weight: bold; font-size: 90px;">Kel.x</h1>
   <p style="color: black; font-size: 70px">best style for you</p>
-  <div class="btn"  style="text-align: center;">
-  <%= link_to "Get started", new_survey_survey_response_path(Survey.last), class: 'btn-group-lg btn-default btn-lg' %>
+  <div style="text-align: center; font-size: 30px;">
+  <%= link_to  new_survey_survey_response_path(Survey.last), class: 'home-small-button btn-group-lg btn-danger btn-lg btn' do %>
+    GET STARTED <span class="glyphicon glyphicon-menu-right"></span>
+  <% end %>
   </div>
   </div>
 </div>
@@ -12,26 +14,21 @@
 <div class="wrapper-home">
   <div class="container-info">
     <div class="row">
-      <div class="col-xs-6 col-sm-3 col-sm-offset-3" style="width: 100%;">
-      <h1>About us</h1>
-      <h2>Want to look suave?</h2>
+      <div class="col-xs-12 col-sm-8 offset-2">
+      <h1 style="margin-bottom: 20px;">Want to look suave?</h1>
         <p>Don't let your Mum buy your clothes for you...</p>
-        <p>Take your thread game to the next level, we're here for you.</p>
+        <p>Take your thread game to the next level</p>
+        <p>we're here for you.</p>
         <br>
-      <ul>
-        <li>Fill out your style profile <strong> 3min </strong></li>
-        <br>
-        <li>Our expert stylists handpick items just for you</li>
-        <br>
-        <li>Free delivery</li>
-      </ul>
-      </div>
-    </div>
-  </div>
-  <div class="container-card">
-    <div class="col-xs-6 col-sm-3 col-sm-offset-4">
-      <div class="row">
-        <div class="home-card" style="background-image: url('https://source.unsplash.com/dAqFWYYpPps');">
+        <div class="advantage">
+          <span class="badge badge-pill badge-dark" style="font-size: 43px;     margin-bottom: 10px;">Free delivery</span><br>
+          <span class="badge badge-pill badge-dark" style="font-size: 43px;     margin-bottom: 10px;">Fill out your style profile <strong> 3min </strong></span>
+          <span class="badge badge-pill badge-dark" style="font-size: 43px;     margin-bottom: 10px;">Our expert stylists handpick items just for you</span>
+        <div class="button" style="margin-left: 25px; margin-top: 50px">
+          <%= link_to new_survey_survey_response_path(Survey.last), class: 'home-big-button btn-danger btn-lg btn-block btn' do %>
+            GET STARTED <span class="glyphicon glyphicon-menu-right"></span>
+          <% end %>
+        </div>
         </div>
       </div>
     </div>
@@ -40,40 +37,53 @@
 
 <br>
 
-<div class="container-cards">
+<div class="container-cards-bland">
   <div class="row">
-    <div class="col-xs-12 col-sm-4">
-      <div class="card" style="background-image: url('https://plazaromania.ro/wp-content/uploads/2017/02/logo_pull_and_bear_1024px.png'); width: 306px;">
+    <div class="col-sm-2">
+      <div class="card-bland" style="background-image: url('https://plazaromania.ro/wp-content/uploads/2017/02/logo_pull_and_bear_1024px.png'); width: 198px;">
       </div>
     </div>
-    <div class="col-xs-12 col-sm-4">
-      <div class="card" style="background-image:url('https://matalan-assets.imgix.net/assets/roundel/pdp/brand_farah-02c5bf0ef629cb3ab1a1d1589e4bebd17a4ec3928368eb891677a5712b498a53.svg'); width: 306px;">
+    <div class="col-sm-2">
+      <div class="card-bland" style="background-image:url('https://matalan-assets.imgix.net/assets/roundel/pdp/brand_farah-02c5bf0ef629cb3ab1a1d1589e4bebd17a4ec3928368eb891677a5712b498a53.svg'); width: 198px;">
       </div>
     </div>
-    <div class="col-xs-12 col-sm-4">
-      <div class="card" style="background-image:url('https://cdn-ap-ec.yottaa.net/560442ae312e58642f000cde/44b6e820c4840134a0f50a3ba3fac80a.yottaa.net/v~4b.bb/tenantlogos/22370.png?yocs=v_&yoloc=ap'); width: 306px;">
+    <div class="col-sm-2">
+      <div class="card-bland" style="background-image:url('https://cdn-ap-ec.yottaa.net/560442ae312e58642f000cde/44b6e820c4840134a0f50a3ba3fac80a.yottaa.net/v~4b.bb/tenantlogos/22370.png?yocs=v_&yoloc=ap'); width: 203px;">
       </div>
     </div>
-    <div class="col-xs-12 col-sm-4">
-      <div class="card" style="background-image:url('https://www.yellowpages.my/custom/domain_1/image_files/sitemgr_photo_133654.png'); width: 306px;">
+    <div class="col-sm-2">
+      <div class="card-bland" style="background-image:url('https://cdn.freebiesupply.com/logos/large/2x/paul-smith-logo-black-and-white.png'); width: 172px  ;">
       </div>
     </div>
-    <div class="col-xs-12 col-sm-4">
-      <div class="card" style="background-image:url('https://www.crossgatesshopping.co.uk/wp-content/uploads/2015/11/New-Look-Logo.png'); width: 306px;">
+    <div class="col-sm-2">
+      <div class="card-bland" style="background-image:url('https://www.crossgatesshopping.co.uk/wp-content/uploads/2015/11/New-Look-Logo.png'); width: 173px;">
       </div>
     </div>
-    <div class="col-xs-12 col-sm-4">
-      <div class="card" style="background-image:url('https://www.interbrand.com/assets/00000001361.png'); width: 306px;">
+    <div class="col-sm-2">
+      <div class="card-bland" style="background-image:url('https://wl3-cdn.landsec.com/sites/default/files/images/shops/logos/polo_ralph_lauren.png'); width: 198px;">
       </div>
     </div>
   </div>
 </div>
 
 <div class="container_button2" style="text-align: center;">
-  <div class="btn"  style="text-align: center; margin-top: 27px;">
-  <%= link_to "Get started", new_survey_survey_response_path(Survey.last), class: 'btn-default btn-lg btn-block' %>
+  <div class="row">
+    <div class="col-xs-12" style="width: 100%;">
+      <div class="container_message">
+      <p>No matter what your size, favourite colours or style </p>
+      <p>our professional stylists and machine learning algorithm will boost you</p>
+      <p>to new fashion heights and inspire you to discover your boss man</p>
+      </div>
+    </div>
+  </div>
+  <div style="margin-left: 300px; margin-top: 27px;">
+    <%= link_to new_survey_survey_response_path(Survey.last), class: 'home-big-button btn-danger btn-lg btn-block btn' do %>
+      GET STARTED <span class="glyphicon glyphicon-menu-right"></span>
+    <% end %>
   </div>
 </div>
+
+
 
 
 
