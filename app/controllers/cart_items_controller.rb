@@ -4,6 +4,10 @@ class CartItemsController < ApplicationController
 
   def index
     @cart_items = current_user.cart_items
+    @cart_items_tops = @cart_items.select {|cart_item| cart_item.product.category == "TOPS"}
+    @cart_items_bottoms = @cart_items.select {|cart_item| cart_item.product.category == "BOTTOMS"}
+    @sub_total_tops = @cart_items_tops.map { |item| item.quantity * item.product.sale_price }.sum
+    @sub_total_bottoms = @cart_items_bottoms.map { |item| item.quantity * item.product.sale_price }.sum
     @sum_total = @cart_items.map { |item| item.quantity * item.product.sale_price }.sum
   end
 
