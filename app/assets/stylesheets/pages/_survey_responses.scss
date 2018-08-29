@@ -2,6 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.invisible { 
+  display: none; 
+}
+
 .wrapper {
   height: 800px;
 }

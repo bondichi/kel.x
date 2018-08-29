@@ -3,9 +3,9 @@ require 'json'
 class AnswersController < ApplicationController
   def create
     content_data = Question.find(params[:question_id]).content["options"][answer_params[:content].to_i-1][2] || Question.find(params[:question_id]).content["options"][answer_params[:content].to_i-1][0]
-
-  	Answer.create(question_id: params[:question_id], content: content_data, survey_response_id: answer_params[:survey_response_id])
-  	@survey_response = SurveyResponse.find(answer_params[:survey_response_id])
+    Answer.create(question_id: params[:question_id], content: content_data, survey_response_id: answer_params[:survey_response_id])
+    @survey_response = SurveyResponse.find(answer_params[:survey_response_id])
+    @survey = Survey.find(@survey_response.survey_id)
   	@question_id = params[:question_id]
 
     @last_question = @survey_response.unanswered_questions.empty?
