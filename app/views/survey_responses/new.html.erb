@@ -11,7 +11,7 @@
 <div class="wrapper">
   <div class="container-survey">
     <div class="row">
-      <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+      <div class="col-xs-12 col-sm-10 col-sm-offset-1">
         <% @survey.questions.each do |question, q_i| %>
           <div class="survey_form" id="form_wrapper_<%= question.id %>">
             <!-- standard questions below  -->
@@ -31,38 +31,44 @@
               <!-- select questions below  -->
           	  <%= simple_form_for [question, Answer.new(survey_response: @survey_response)], remote: true, html: { id: "form_answer_#{question.id}" } do |f| %>
               <!-- Header and Question  -->
-                <h1>
+                <h2 class="question-header">
                   <%= question[:content]["header"] %>
-                </h1>
-          			<ul>
+                </h2>
+          			<p class="question-text">
           				<%= question[:content]["question"] %>
-          			</ul>
+          			</p>
                 <!-- Answer Options as Buttons  -->
-                <ul class = "list-unstyled">
-            			<%= f.input :survey_response_id, as: :hidden %>
-                  <%= f.input :content, as: :radio_buttons, label: false do    %>
-                    <% question[:content]["options"].each_with_index do |c, i| %>
-                    <!-- Options if text  -->
-                    <% if question[:content]["option_type"] == 'text' %>
-                      <li class= "survey-answer-item">
-                        <%= f.radio_button(:content, c.second, class: "survey-answer-radio", id: "answer_#{question.id}_#{i}") %><%= f.label c.first, class: "form-check-label survey-answer-label", for: "answer_#{question.id}_#{i}" %>
-                      </li>
-
-                    <% else %>
-                    <!-- Options if images  -->
-                      <li class= "survey-answer-item">
-                        <%= f.radio_button(:content, c.second, class: "survey-answer-radio",  id: "answer_#{question.id}_#{i}") %><%= f.label c.first, class: "form-check-label survey-answer-label", for: "answer_#{question.id}_#{i}" do %>
-                          <div class="survey-answer-image">
-                            <%= image_tag c.first, height: 250, width: 200 %>
-                          </div>
+                <div class="row">
+                  <div class="col-md-9">
+                    <ul class = "list-unstyled">
+                      <%= f.input :survey_response_id, as: :hidden %>
+                      <%= f.input :content, as: :radio_buttons, label: false do    %>
+                        <% question[:content]["options"].each_with_index do |c, i| %>
+                        <!-- Options if text  -->
+                        <% if question[:content]["option_type"] == 'text' %>
+                          <li class= "survey-answer-item">
+                            <%= f.radio_button(:content, c.second, class: "survey-answer-radio", id: "answer_#{question.id}_#{i}") %><%= f.label c.first, class: "form-check-label survey-answer-label", for: "answer_#{question.id}_#{i}" %>
+                          </li>
+                        
+                        <% else %>
+                        <!-- Options if images  -->
+                          <li class= "survey-answer-item">
+                            <%= f.radio_button(:content, c.second, class: "survey-answer-radio",  id: "answer_#{question.id}_#{i}") %><%= f.label c.first, class: "form-check-label survey-answer-label", for: "answer_#{question.id}_#{i}" do %>
+                              <div class="survey-answer-image">
+                                <%= image_tag c.first, height: 100, width: 80 %>
+                              </div>
+                            <% end %>
+                          </li>
+                          <% end %>
                         <% end %>
-                      </li>
                       <% end %>
-                    <% end %>
-                  <% end %>
-                </ul>
-                <!-- Explanation of the question  -->
-                <p> <%= question[:content]["explanation"] %> </p>
+                    </ul>
+                  </div>
+                  <div class="col-md-3">
+                    <!-- Explanation of the question  -->
+                    <p class="text-left explanation"> <%= question[:content]["explanation"] %> </p>
+                  </div>
+                </div>  
                 <%= f.submit("Submit", class: "btn btn-default" ) %>
           	  <% end %>
             <% end %>

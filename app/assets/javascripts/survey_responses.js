@@ -11,7 +11,6 @@ if (back) {
 		if (id.length > 0) {
 			let form = document.getElementById(id.pop());
 			let wrapper = form.parentElement;
-			console.log('hello')
 			wrapper.classList.remove('fadeOutRight');
 			wrapper.classList.add('fadeInRight');
 			wrapper.classList.remove('invisible');
