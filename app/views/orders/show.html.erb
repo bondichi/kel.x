@@ -1,12 +1,47 @@
 <h1>Order Confirmation Page</h1>
-
-<% @order.order_items.each do |item| %>
-	<h4>Item: <%= item.product.description %></h4>
-	<p>Quantity: <%= item.quantity %></p>
-	<p>Price: <%= humanized_money_with_symbol item.product.sale_price %></p>
-<% end %>
-
-<h3>Total: <%= humanized_money_with_symbol @order.amount %></h3>
-
+<div class="warpper-confirmation">
+  <div class="order-table">
+    <table class="table table-striped">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Item</th>
+          <th scope="col">Description</th>
+          <th scope="col">Quantity</th>
+          <th scope="col">Total Price</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @order.order_items.each do |item| %>
+        <tr>
+          <th scope="row">
+            <%=  link_to product_path(item.product_id) do %>
+              <div class="cart-image-container">
+                <img class= "cart-image" src=<%= cl_image_path item.product.photo %> alt="Image of selected clothing item">
+              </div>
+            <% end %>
+          </th>
+          <td><%= item.product.description %></td>
+          <td><%= item.quantity %></td>
+          <td><%= humanized_money_with_symbol(item.product.sale_price * item.quantity) %></td>
+        </tr>
+      <% end %>
+        <tr class="table-success">
+          <th scope="row"> SUM TOTAL </th>
+          <td></td>
+          <td></td>
+          <td><%= humanized_money_with_symbol @order.amount %></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
 
 <%= link_to "Back to Recommendations", products_path %>
+
+
+
+</div>
+
+
