@@ -9,26 +9,25 @@
 }
 
 .container-info {
-  flex:0 0 34%;
-  margin-top: 20px;
+  margin-top: 50px;
   margin-bottom: 80px;
+  color: gray;
 }
 
-.container-card {
+.container-cards-bland {
   flex:1 0 20%;
   margin-top: 50px;
 }
 
-.home-card {
-  height: 393px;
-  width: 608px;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+.card-bland {
+  height: 175px;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
   background-size: cover !important;
+  background-repeat: no-repeat;
   background-position: center;
   color: white;
-  position: relative;
   margin-bottom: 14px;
-
+  margin-left: 7px;
 }
 
 .container_button1 {
@@ -38,8 +37,53 @@
 
 .container_button2 {
   margin-top: 50px;
-  margin-bottom: 56px;
   background-color: white;
-  height: 102px;
+  height: 300px;
 }
 
+.container_message {
+  margin-top: 52px;
+  word-spacing: 9px;
+  letter-spacing: 4px;
+}
+
+.container-info h1{
+  font-size: 57px;
+  color: #6b6e77;
+  word-spacing: 9px;
+  letter-spacing: 4px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.container-info p{
+  font-size: 22px;
+  color: #6b6e77;
+  margin: 0 0 0.5px;
+  letter-spacing: 10px;
+  margin-top: 58px;
+}
+
+.advantage {
+  margin-top: 40px;
+  margin-left: 37px;
+}
+
+.home-big-button {
+  width: 797px;
+  border-radius: 3px;
+  text-align: center;
+  font-size: 37px;
+  border-radius: 3px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.home-small-button {
+  font-size: 37px;
+  border-radius: 3px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.glyphicon {
+  font-size: 29px;
+}
