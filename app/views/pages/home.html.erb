@@ -1,12 +1,14 @@
 <div class="banner" style="background-image: url('https://source.unsplash.com/eGHlWS-zQSM/1680x1100');">
   <div class="banner-content">
-  <h1 style="color: black; font-weight: bold; font-size: 90px;">Kel.x</h1>
-  <p style="color: black; font-size: 70px">Curated Style & Fit</p>
-  <div style="text-align: center; font-size: 30px;">
-  <%= link_to  new_survey_survey_response_path(Survey.last), class: 'home-small-button btn-group-lg btn-danger btn-lg btn' do %>
-    GET STARTED <span class="glyphicon glyphicon-menu-right arrow-glyph-btn-home"></span>
-  <% end %>
-  </div>
+    <div class="col-xs-12 col-md-12">
+      <h1 style="color: black; font-weight: bold; font-size: 90px;">Kel.x</h1>
+      <p style="color: black; font-size: 70px">Curated Style & Fit</p>
+      <div style="text-align: center; font-size: 30px;">
+      <%= link_to  new_survey_survey_response_path(Survey.last), class: 'home-small-button btn-group-lg btn-danger btn-lg btn' do %>
+        GET STARTED <span class="glyphicon glyphicon-menu-right"></span>
+      <% end %>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -14,7 +16,7 @@
 <div class="wrapper-home">
   <div class="container-info">
     <div class="row">
-      <div class="col-xs-12 col-sm-8 offset-2">
+      <div class="col-md-12 col-xs-12 offset-3" style="margin-left: 33px;">
       <h1 style="margin-bottom: 20px;">Want to look suave?</h1>
         <p>Don't let your Mum buy your clothes for you...</p>
         <p>Take your thread game to the next level</p>
@@ -22,12 +24,12 @@
         <br>
         <div class="advantage">
           <span class="badge badge-pill badge-dark" style="font-size: 43px;     margin-bottom: 10px;">Free delivery</span><br>
-          <span class="badge badge-pill badge-dark" style="font-size: 43px;     margin-bottom: 10px;">Fill out your style profile <strong> 3min </strong></span>
+          <span class="badge badge-pill badge-dark" style="font-size: 43px;     margin-bottom: 10px;">Fill out your style profile <strong> 3min </strong></span><br>
           <span class="badge badge-pill badge-dark" style="font-size: 43px;     margin-bottom: 10px;">Our expert stylists handpick items just for you</span>
-        <div class="button" style="margin-left: 25px; margin-top: 50px">
-          <%= link_to new_survey_survey_response_path(Survey.last), class: 'home-big-button btn-danger btn-lg btn-block btn' do %>
-            GET STARTED <span class="glyphicon glyphicon-menu-right arrow-glyph-btn-home"></span>
-          <% end %>
+        <div class="button col-xs-12 col-md-12" style="margin-top: 50px">
+      <%= link_to  new_survey_survey_response_path(Survey.last), class: 'home-small-button btn-group-lg btn-danger btn-lg btn' do %>
+        GET STARTED <span class="glyphicon glyphicon-menu-right"></span>
+      <% end %>
         </div>
         </div>
       </div>
@@ -68,14 +70,19 @@
 
 <div class="container_button2" style="text-align: center;">
   <div class="row">
-    <div class="col-xs-12" style="width: 100%;">
-      <div class="container_message">
+    <div class="col-xs-12 col-md-12" style="width: 100%;">
+      <div class="container_message" style="text-align: center">
       <p>No matter what your size, favourite colours or style </p>
       <p>our professional stylists and machine learning algorithm will boost you</p>
       <p>to new fashion heights and inspire you to discover your boss man</p>
       </div>
     </div>
+    <div class="col-xs-12 col-md-12 offset-5" style="margin-top: 27px; display: flex;">
+      <%= link_to  new_survey_survey_response_path(Survey.last), class: 'home-small-button btn-group-lg btn-danger btn-lg btn' do %>
+        GET STARTED <span class="glyphicon glyphicon-menu-right"></span>
+      <% end %>
   </div>
+
   <div style="margin-left: 318px; margin-top: 27px;">
     <%= link_to new_survey_survey_response_path(Survey.last), class: 'home-big-button btn-danger btn-lg btn-block btn' do %>
       GET STARTED <span class="glyphicon glyphicon-menu-right arrow-glyph-btn-home"></span>

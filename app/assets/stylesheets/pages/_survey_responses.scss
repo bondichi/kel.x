@@ -2,8 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.invisible { 
-  display: none; 
+.invisible {
+  display: none;
 }
 
 .wrapper {
@@ -53,18 +53,22 @@
 
 .survey-answer-image {
   // height: 270px;
-  // width: 200px;
+  // width: 300px;
   // border: 1px dotted #d1d0cc;
   // background-image: cover;
 }
 
 .explanation {
   border-left: solid #eee 1px;
-  padding-left: 20px;
+  padding-bottom: 60px;
   font-size: 16px;
   line-height: 1.3;
   color: #666;
+  text-align: center;
+  opacity: 0.6;
 }
+
+
 
 .question-header {
   margin-top: 0;
@@ -77,8 +81,9 @@
 }
 
 .question-text {
-  margin-top: 0;
+  margin-top: 23px;
   margin-bottom: 40px;
+  font-weight: bold;
 }
 
 .survey-footer {
