@@ -12,7 +12,7 @@
 
 .survey_form  {
   text-align: center;
-  height: 80vh;
+  height:  calc(100vh - 160px);
   font-size: 18px;
   justify-content: center;
   letter-spacing: 1px;
@@ -34,8 +34,6 @@
   margin: 0 10px 10px 0;
   padding: 10px;
   font-size: 16px;
-
-
 }
 
 .survey-answer-radio {
@@ -75,4 +73,25 @@
 .question-text {
   margin-top: 0;
   margin-bottom: 40px;
+}
+
+.survey-footer {
+    position: fixed;
+    height: 100px;
+    bottom: 0;
+    width: 100%;
+    background-color: #F4F4F4;
+}
+
+.inner-footer {
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+  margin: 10px 0 10px 0;
+}
+
+.survey-nav {
+  margin: 0 20px;
 }

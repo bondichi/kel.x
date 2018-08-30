@@ -1,11 +1,20 @@
 
   <% content_for :navbar do %>
-  <p id="survey-progress"></p>
-  <button id="back-button" class="btn">Back</button>
+  <p></p>
   <% end %>
 
   <% content_for :footer do %>
-  <p></p>
+  <div class="survey-footer">
+    <div class="row">
+      <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+        <div class="inner-footer">
+          <button id="back-button" class="btn survey-nav">Back</button>
+          <p id="survey-progress">Completed 0 of <%= @survey.questions.count %> Questions</p>
+          <button id="skip-button" class="btn survey-nav">Skip</button>
+        </div>
+      </div>
+    </div>
+  </div>
   <% end %>
 
 <div class="wrapper">
