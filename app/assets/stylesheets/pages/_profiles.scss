@@ -1,4 +1,15 @@
-// Place all the styles related to the profiles controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.wrapper-form-button.row {
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
 
+.form-action .btn.btn-default {
+  width: 100%;
+  color: gray;
+}
+
+.form-action2 .btn {
+  width: 100%;
+  color: #da552f;
+  border: 2px solid #da552f;
+}
