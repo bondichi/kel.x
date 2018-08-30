@@ -38,6 +38,6 @@ if (skip) {
 document.querySelectorAll('.survey-answer-label').forEach(function(label) {
   label.addEventListener('click', (e) => {
 
-		console.log("hello");
+		console.log(e.currentTarget);
 	});
 });
