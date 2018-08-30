@@ -1,49 +1,54 @@
 
+<!-- setting specific meta tags for page tab -->
+<% content_for :meta_title, "#{@product.description} recommended by #{DEFAULT_META["meta_product_name"]}" %>
+<!-- setting specific meta tags external sites -->
+<% content_for :meta_description, "#{@product.description} recommended by #{DEFAULT_META["meta_product_name"]}" %>
+<% content_for :meta_image, cl_image_path(@product.photo) %>
+
+
 <div class="wrapper-product-page">
   <div class="row">
-      <div class="col-sm-offset-1 col-sm-8">
+      <div class="col-sm-offset-2 col-md-8">
         <div class="product-page-container">
-      <div class="row">
-        <div class="col-sm-5">
-          <div class="product-page-img">
-            <img class= "main-image" src=<%= cl_image_path(@product.photo, :width=>360, :height=>500, :gravity=>"auto", :crop=>"fill") %> alt="Image of selected clothing item">
+          <div class="row">
+            <div class="col-md-5">
+              <div class="product-page-img">
+                <img class= "main-image" src=<%= cl_image_path(@product.photo, :width=>360, :height=>500, :gravity=>"auto", :crop=>"fill") %> alt="Image of selected clothing item">
+              </div>
+            </div>
+            <div class="col-md-7">
+              <div class="product-page-content">
+                <div class="product-description">
+                  <h4><strong><%= @product.brand.name %></strong></h4>
+                  <br>
+                  <h5><%= @product.description %></h5>
+                  <br>
+                  <p>Main colour: <%= @product.main_colour %></p>
+                  <p>Print/wash: <%= @product.print_wash %></p>
+                  <p>Fit: <%= @product.silhouette %></p>
+                  <p>Fabric Composition: <%= @product.fabric_composition %></p>
+                </div>
+                <div class="product-price">
+                  <p><strong>Price: </strong><%=  humanized_money_with_symbol(@product.sale_price) %></p>
+                </div>
+                <div class= "add-to-cart">
+                  <%= simple_form_for @cart_item do |f| %>
+                    <%= f.input :product_id, as: :hidden %>
+                    <%= image_tag "shopping-cart.png", height: 50 %>
+                    <%= f.button :submit, "Add to cart" %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="col-sm-7">
-          <div class="product-page-content">
-            <div class="product-description">
-              <h4><strong><%= @product.brand.name %></strong></h4>
-              <br>
-              <h5><%= @product.description %></h5>
-              <br>
-              <p>Main colour: <%= @product.main_colour %></p>
-              <p>Print/wash: <%= @product.print_wash %></p>
-              <p>Fit: <%= @product.silhouette %></p>
-              <p>Fabric Composition: <%= @product.fabric_composition %></p>
-            </div>
-            <div class="product-price">
-              <p><strong>Price: </strong><%=  humanized_money_with_symbol(@product.sale_price) %></p>
-
-            </div>
-
-            <div class= "add-to-cart">
-              <%= simple_form_for @cart_item do |f| %>
-                <%= f.input :product_id, as: :hidden %>
-                <%= image_tag "shopping-cart.png", height: 50 %>
-                <%= f.button :submit, "Add to cart" %>
-              <% end %>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </div>
-  </div>
   <div class="row">
-  <div class="col-sm-offset-2 col-sm-8">
-      <div class="back-to-recs">
-      <button class = "btn-back-to-recs"> <%= link_to "Back to Recommendations", products_path %></button>
-      </div>
-  </div>
+    <div class="col-sm-offset-2 col-sm-8">
+        <div class="back-to-recs">
+          <%= link_to products_path, class: 'back-recommedation-button btn btn-danger shaded-rounded-btn' do %><span class="glyphicon glyphicon-menu-left" style="font-size: 16px;"></span>BACK TO RECOMMENDATIONS<% end %>
+        </div>
+    </div>
   </div>
 </div>

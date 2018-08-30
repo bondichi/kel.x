@@ -1,10 +1,13 @@
 class ProductsController < ApplicationController
   def index
   	survey_response = SurveyResponse.find_by(profile_id: current_user.id)
-  	
   	answers_for_filter = Answer.where(survey_response_id: survey_response.id).select { |answer| answer.content.class == Hash }
-  	@filtered_products_tops = filter_products_all(Product.where(category: "TOPS"), answers_for_filter)
-  	@filtered_products_bottoms = filter_products_all(Product.where(category: "BOTTOMS"), answers_for_filter)
+    # take off filter for now
+  	# @filtered_products_tops = filter_products_all(Product.where(category: "TOPS"), answers_for_filter)
+   #  @filtered_products_bottoms = filter_products_all(Product.where(category: "BOTTOMS"), answers_for_filter)
+    @filtered_products_tops = Product.where(category: "TOPS")
+    @filtered_products_bottoms = Product.where(category: "BOTTOMS")
+
   end
 
   def show

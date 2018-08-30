@@ -1,18 +1,18 @@
 function hide() {
-	question.style.display = 'none';
-	console.log("hello")
-}
+	question.classList.add('invisible');
+};
 
-question = document.getElementById('new_answer_<%= @question_id %>');
+question = document.getElementById('form_wrapper_<%= @question_id %>');
+progress = document.getElementById('survey-progress');
+progress.innerText = 'Completed <%= @survey.questions.count - @survey_response.unanswered_questions.count %> of <%= @survey.questions.count %> Questions';
 
 question.classList.add('animated');
-question.classList.add('zoomOutRight');
+question.classList.add('fadeOutUp');
 setTimeout(hide, 800);
-// question.style.display = 'none';
 
 
 if (<%= @last_question%>) {
 
   window.location.replace('/products');
 
-}
+};
