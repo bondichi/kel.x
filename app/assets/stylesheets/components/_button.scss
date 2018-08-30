@@ -6,3 +6,51 @@
   margin-bottom: 20px;
 }
 
+// HOME BUTTONS:
+// home also uses bootsrap btn-danger btn-lg btn-block btn
+.home-big-button {
+  width: 797px;
+  border-radius: 3px;
+  text-align: center;
+  font-size: 37px;
+  border-radius: 3px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+// also uses: btn-group-lg btn-danger btn-lg btn
+.home-small-button {
+  font-size: 37px;
+  border-radius: 3px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+// small submit buttons
+// also uses: btn-group-lg btn-danger btn-lg btn
+.small-submit-button {
+  font-size: 18px;
+  border-radius: 3px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+// arrow gliph for use with small buttons
+.arrow-glyph-btn-small {
+  font-size: 15px;
+  padding-top: 2px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

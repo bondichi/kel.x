@@ -75,13 +75,15 @@
             </div>
           </div>
           <% end %>
-
-          <div class="cart-table-footer"><span class= "sum-total-text">Sum Total:</span><%= humanized_money_with_symbol(@sum_total)%>
-          <%= link_to edit_profile_shipping_address_path, class: 'btn btn-default shaded-rounded-btn checkout-btn' do %>CHECKOUT <span class="glyphicon glyphicon-menu-right"></span>
-          <% end %>
+          <div class="cart-cta-section">
+            <div class="cart-page-back-to-recs">
+              <%= link_to products_path do %><span class="glyphicon glyphicon-menu-left arrow-glyph-btn-small"></span>BACK TO RECOMMENDATIONS<% end %>
+            </div>
+            <div class="cart-table-footer"><span class= "sum-total-text">Sum Total:</span><%= humanized_money_with_symbol(@sum_total)%>
+            <%= link_to edit_profile_shipping_address_path, class: 'btn-group-lg btn-danger btn-lg small-submit-button' do %>CHECKOUT <span class="glyphicon glyphicon-menu-right arrow-glyph-btn-small"></span>
+            <% end %>
+            </div>
           </div>
-
-          <%= link_to products_path, class: 'btn btn-default shaded-rounded-btn' do %><span class="glyphicon glyphicon-menu-left"></span>BACK TO RECOMMENDATIONS<% end %>
         </div>
       </div>
     </div>
