@@ -24,6 +24,8 @@ class AnswersController < ApplicationController
   private
 
   def answer_params
-  	params.require(:answer).permit(:content, :survey_response_id)
+  	answer_params = params.require(:answer).permit(:content, :survey_response_id)
+    answer_params[:content] ||= "Skip"
+    answer_params
   end
 end

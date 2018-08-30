@@ -11,8 +11,8 @@ if (back) {
 		if (backId.length > 0) {
 			let form = document.getElementById(backId.pop());
 			let wrapper = form.parentElement;
-			wrapper.classList.remove('fadeOutRight');
-			wrapper.classList.add('fadeInRight');
+			wrapper.classList.remove('fadeOutUp');
+			wrapper.classList.add('fadeInDown');
 			wrapper.classList.remove('invisible');
 		};
 	});
@@ -31,13 +31,26 @@ if (back) {
 };
 
 if (skip) {
-
+	skip.addEventListener('click', (e) => {
+		const currentForm = document.querySelector('.survey_form:not(.invisible)');
+		let currentFormId = currentForm.dataset.questionId
+		// console.log(currentFormId);
+		let currentSubmitButton = document.getElementById(`question-${currentFormId}-submit-btn`);
+		currentSubmitButton.click();
+		// console.log(currentForm.childNode.dataset);
+	})
 };
 
 
 document.querySelectorAll('.survey-answer-label').forEach(function(label) {
   label.addEventListener('click', (e) => {
 
-		console.log(e.currentTarget);
+  	let currentFormId = e.currentTarget.dataset.questionId
+  	let currentSubmitButton = document.getElementById(`question-${currentFormId}-submit-btn`);
+  	currentSubmitButton.click();
+		// console.log(currentSubmitButton); 
+		// console.log(currentForm);
+		// currentForm.submit();
+
 	});
 });

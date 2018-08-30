@@ -12,13 +12,14 @@
 
 .survey_form  {
   text-align: center;
-  height:  calc(100vh - 160px);
+  height: calc(100vh - 120px);
   font-size: 18px;
   justify-content: center;
   letter-spacing: 1px;
   margin-bottom: 20px;
   background-color: white;
   padding: 40px;
+  border-radius: 5px;
 }
 
 .question{
@@ -90,8 +91,13 @@
   align-items: center;
   height: 70px;
   margin: 10px 0 10px 0;
+  border-radius: 5px;
 }
 
 .survey-nav {
   margin: 0 20px;
+}
+
+.container-survey {
+  overflow: hidden;
 }
