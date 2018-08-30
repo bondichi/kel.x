@@ -1,15 +1,12 @@
-<!-- setting specific meta tags for page tab -->
 <% content_for :meta_title, "#{DEFAULT_META["meta_product_name"]}-Your shipping details" %>
 
-
-<div class="shipping-heading" style="margin-top: 143px;">
-  <h1>Shipping Details</h1>
-</div>
-
-<div class="main-wrapper"">
-  <div class="container">
+<div class="shipping-main-wrapper"">
+  <div class="shipping-page-container">
+  <div class="shipping-heading style="margin-top: 143px;">
+    <h1>Shipping Details</h1>
+  </div>
     <div class="row">
-      <div class="col-xs-12 col-sm-4 col-sm-offset-4">
+      <div class="col-xs-12 col-md-6 col-md-offset-3">
         <div class="form">
           <%= simple_form_for([current_user.profile, @shipping_address], defaults: { input_html: { class: 'form-control' }}) do |f| %>
           <%= f.error_notification %>
@@ -34,11 +31,17 @@
           <div class="form-group">
             <%= f.input :special %>
           </div>
-              <button class="btn btn-outline-secondary" type="button"><%= f.button :submit %></button>
-              <button class="btn btn-outline-secondary sumbit-shipping-btn" type="button"><%= link_to orders_path, method: :post do %>
-          <%= submit_tag 'Submit', class: 'btn btn-outline-secondary'%>
-          <% end %></button>
-          <% end %>
+            <div class="ctas-shipping-page">
+              <div class="update-address">
+                <button class="btn-default small-submit-button" type="button"><%= f.button :submit %></button>
+              </div>
+              <div class="submit-path">
+                <%= link_to orders_path, method: :post do %>
+                <%= submit_tag 'CHECKOUT', class: 'btn-group-lg btn-danger btn-lg small-submit-button'%>
+                <% end %>
+              </div>
+            </div>
+            <% end %>
             </div>
           </div>
         </div>
