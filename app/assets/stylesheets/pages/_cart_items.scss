@@ -15,7 +15,6 @@
   margin-bottom: 100px;
   text-align: left;
   font-color: #222;
-
 }
 
 .cart-table-header {
@@ -67,21 +66,27 @@
   width: 80px;
 }
 
-.shaded-rounded-btn {
-  border-radius: 3px;
-  box-shadow: 1px 1px 3px #bbbbbb;
-  color: #2b2a2a;
-  opacity: 0.8;
-}
-
-.checkout-btn {
-  background-color: #ed4301;
-  opacity: 0.8;
-  margin-left: 10px;
-}
-
 .sum-total-text {
   margin-right: 10px;
 }
+
+.cart-cta-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cart-page-back-to-recs {
+  margin-top: 20px;
+  :visited {
+    color: #7d7d7d;
+    opacity: 0.4;
+  }
+}
+  // .cart-page-back-to-recs:hover {
+  // text-decoration: none;
+  // color: #7d7d7d;
+  // opacity: 1;
+  // }
 
 
