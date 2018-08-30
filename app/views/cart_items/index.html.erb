@@ -1,49 +1,92 @@
+<!-- setting specific meta tags for page tab -->
+<% content_for :meta_title, "#{DEFAULT_META["meta_product_name"]}-Shopping Cart" %>
+<!-- setting specific meta tags external sites -->
+
 <div class="shopping-cart-page-wrapper">
-  <h2>Your Kel-X Shopping Cart</h2>
+  <div class="row">
+    <div class="col-md-offset-2 col-md-8">
+      <div class="cart-page-main">
+        <div class="cart-page-welcome">
+          <h2>Your Kel-X Shopping Cart</h2>
+        </div>
 
-  <div class="cart-table">
-    <table class="table table-striped">
-      <thead class="thead-dark">
-        <tr>
-          <th scope="col">Item</th>
-          <th scope="col">Description</th>
-          <th scope="col">Quantity</th>
-          <th scope="col">Total Price</th>
-          <th scope="col"></th>
-        </tr>
-      </thead>
-      <tbody>
-      <% @cart_items.each do |cart_item| %>
-        <tr>
-          <th scope="row">
-            <%=  link_to product_path(cart_item.product_id) do %>
-              <div class="cart-image-container">
-                <img class= "cart-image" src=<%= cl_image_path cart_item.product.photo %> alt="Image of selected clothing item">
+        <div class="cart-table">
+          <% if @cart_items_tops != [] %>
+          <h3>TOPS</h3>
+          <div class="cart-table-section">
+            <div class="cart-table-header">
+              <div class="row">
+                <div class="col-md-2">Item</div>
+                <div class="col-md-4">Description</div>
+                <div class="col-md-2 text-right">Quantity</div>
+                <div class="col-md-2 text-right">Price</div>
+                <div class="col-md-2">Action</div>
               </div>
-            <% end %>
-          </th>
-          <td><%= cart_item.product.description %></td>
-          <td><%= cart_item.quantity %></td>
-          <td><%= humanized_money_with_symbol(cart_item.product.sale_price * cart_item.quantity) %></td>
-          <td><%= link_to "Delete Cart Item", cart_item_path(cart_item), :method => :delete, :confirm => "Are you sure?", class: 'btn btn-danger' %></td>
-        </tr>
-      <% end %>
-        <tr class="table-warning">
-          <th scope="row"> SUM TOTAL </th>
-          <td></td>
-          <td></td>
-          <td><%= humanized_money_with_symbol(@sum_total) %></td>
-          <td></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+            </div>
+            <% @cart_items_tops.each do |top| %>
+            <div class="row cart-table-row">
+              <div class="col-md-2">
+                <%=  link_to product_path(top.product_id) do %>
+                  <div class="cart-image-container">
+                  <img class= "cart-image" src=<%= cl_image_path top.product.photo %> alt="Image of selected clothing item">
+                  </div>
+                <% end %>
+              </div>
+              <div class="col-md-4"><%= top.product.description %></div>
+              <div class="col-md-2 text-right"><%= top.quantity %></div>
+              <div class="col-md-2 text-right"><%= humanized_money_with_symbol(top.product.sale_price * top.quantity) %></div>
+              <div class="col-md-2"><%= link_to "Remove", cart_item_path(top), :method => :delete, :confirm => "Are you sure?", class: 'btn btn-default shaded-rounded-btn' %></div>
+            </div>
+          <% end %>
+            <div class="row sub-total-row">
+              <div class="col-md-8 text-right">Subtotal</div>
+              <div class="col-md-2 text-right"><%= humanized_money_with_symbol(@sub_total_tops)%></div>
+            </div>
+          </div>
+          <% end %>
 
-  <div class="cart-navigations">
+          <% if @cart_items_bottoms != [] %>
+          <h3>BOTTOMS</h3>
+          <div class="cart-table-section">
+            <div class="cart-table-header">
+              <div class="row">
+                <div class="col-md-2">Item</div>
+                <div class="col-md-4">Description</div>
+                <div class="col-md-2 text-right">Quantity</div>
+                <div class="col-md-2 text-right">Price</div>
+                <div class="col-md-2">Action</div>
+              </div>
+            </div>
+            <% @cart_items_bottoms.each do |bottom| %>
+            <div class="row cart-table-row">
+              <div class="col-md-2">
+                <%=  link_to product_path(bottom.product_id) do %>
+                  <div class="cart-image-container">
+                  <img class= "cart-image" src=<%= cl_image_path bottom.product.photo %> alt="Image of selected clothing item">
+                  </div>
+                <% end %>
+              </div>
+              <div class="col-md-4"><%= bottom.product.description %></div>
+              <div class="col-md-2 text-right"><%= bottom.quantity %></div>
+              <div class="col-md-2 text-right"><%= humanized_money_with_symbol(bottom.product.sale_price * bottom.quantity) %></div>
+              <div class="col-md-2"><%= link_to "Remove", cart_item_path(bottom), :method => :delete, :confirm => "Are you sure?", class: 'btn btn-default shaded-rounded-btn' %></div>
+            </div>
+          <% end %>
+            <div class="row sub-total-row">
+              <div class="col-md-8 text-right">Subtotal</div>
+              <div class="col-md-2 text-right"><%= humanized_money_with_symbol(@sub_total_bottoms)%></div>
+            </div>
+          </div>
+          <% end %>
 
-  <%= link_to('Back to Recommendations', products_path, class: 'btn btn-default') %>
+          <div class="cart-table-footer"><span class= "sum-total-text">Sum Total:</span><%= humanized_money_with_symbol(@sum_total)%>
+          <%= link_to edit_profile_shipping_address_path, class: 'btn btn-default shaded-rounded-btn checkout-btn' do %>CHECKOUT <span class="glyphicon glyphicon-menu-right"></span>
+          <% end %>
+          </div>
 
-  <%= link_to('Checkout', edit_profile_shipping_address_path, class: 'btn btn-default') %>
-
+          <%= link_to products_path, class: 'btn btn-default shaded-rounded-btn' do %><span class="glyphicon glyphicon-menu-left"></span>BACK TO RECOMMENDATIONS<% end %>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

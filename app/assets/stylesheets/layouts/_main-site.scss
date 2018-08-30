@@ -9,9 +9,10 @@
 .generic-page-wrapper-content {
 
 }
-
+// using margin due to the flex direction column (vertical) otherwise would be self adjust property (if horizontal)
+// margin bottom - 0 is used to ensure no space between bottom of generic page wrapper and bottom of footer.
+// margin top - auto is used so that css knows to self adjust based on any size of generic content container which houses the body.
 .generic-page-wrapper-footer {
   margin-top: auto;
   margin-bottom: 0;
-
 }
