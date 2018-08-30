@@ -4,7 +4,7 @@ function hide() {
 
 question = document.getElementById('form_wrapper_<%= @question_id %>');
 progress = document.getElementById('survey-progress');
-progress.innerText = 'Completed <%= @survey.questions.count - @survey_response.unanswered_questions.count %> of <%= @survey.questions.count %> Questions';
+progress.innerText = '<%= (@survey.questions.count - @survey_response.unanswered_questions.count) + 1 %> / <%= @survey.questions.count %>';
 
 question.classList.add('animated');
 question.classList.add('fadeOutUp');
