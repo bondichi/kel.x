@@ -1,15 +1,15 @@
 // Place all the behaviors and hooks related to the matching controller here.
 // All this logic will automatically be available in application.js.
 
-
 let back = document.getElementById('back-button');
+let skip = document.getElementById('skip-button');
 
 if (back) {
-	let id = [];
+	let backId = [];
 
 	back.addEventListener('click', (e) => {
-		if (id.length > 0) {
-			let form = document.getElementById(id.pop());
+		if (backId.length > 0) {
+			let form = document.getElementById(backId.pop());
 			let wrapper = form.parentElement;
 			wrapper.classList.remove('fadeOutRight');
 			wrapper.classList.add('fadeInRight');
@@ -21,11 +21,23 @@ if (back) {
 
 	forms.forEach(function(form) {
 		form.addEventListener('submit', function () {
-		id.push(this.id);
-		console.log(id);	
+		backId.push(this.id);
+		console.log(backId);	
 
 		});
 	});
 
 	progress = document.getElementById('survey-progress');
 };
+
+if (skip) {
+
+};
+
+
+document.querySelectorAll('.survey-answer-label').forEach(function(label) {
+  label.addEventListener('click', (e) => {
+
+		console.log("hello");
+	});
+});
