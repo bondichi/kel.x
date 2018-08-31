@@ -90,12 +90,15 @@
 .main-image {
   max-width: 405px;
   max-height: 505px;
-  padding-left: 20px;
+  // padding-left: 20px;
   padding-top: 38px;
 }
 
 .product-page-img {
   background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   // margin-top: 30px;
   // margin-left: 30px;
 }
