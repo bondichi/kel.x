@@ -42,37 +42,44 @@
 
 .container_button2 {
   margin-top: 50px;
+  padding-bottom: 40px;
   background-color: white;
-  height: 300px;
 }
 
 .container_message {
   margin-top: 52px;
   word-spacing: 9px;
   letter-spacing: 4px;
+  font-size: 24px;
 }
 
 .container-info h1{
   font-size: 57px;
-  color: #6b6e77;
+  color: #222;
   word-spacing: 9px;
-  letter-spacing: 4px;
+  letter-spacing: 2px;
   font-weight: bold;
   text-align: left;
 }
 
 .container-info p{
-  font-size: 22px;
+  font-size: 30px;
   color: #6b6e77;
   margin: 0 0 0.5px;
-  letter-spacing: 10px;
-  margin-top: 58px;
   text-align: left;
 }
 
 .advantage {
   margin-top: 40px;
   text-align: left;
+
+  .badge {
+    font-size: 43px;
+    margin-bottom: 10px;
+    border-radius: 0;
+    background-color: black;
+    padding: 12px 15px;
+  }
 }
 
 .home-big-button {
@@ -85,9 +92,15 @@
 }
 
 .home-small-button {
-  font-size: 37px;
-  border-radius: 3px;
+  border-radius: 0;
+  font-size: 23px;
+  padding: 15px 22px 15px 31px;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+
+  .glyphicon-menu-right {
+    margin-bottom: 3px;
+    margin-left: 5px;
+  }
 }
 
 .arrow-glyph-btn-home {
