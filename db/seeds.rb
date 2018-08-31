@@ -76,7 +76,7 @@ shirts_size_question_1 = Question.new(
       ["logo_pull_and_bear.png", 1],
       ["logo_new_look.png", 2],
       ["logo_ralph_lauren.png", 3],
-      ["logo_farah.png", 4],
+      ["farah-logo-png.svg", 4],
       ["logo_burton.png", 5]
     ]
   }
@@ -96,7 +96,7 @@ shirts_size_question_2 = Question.new(
       ["L", 4],
       ["XL", 5],
       ["XL", 6],
-      ["XXL", 7],
+      ["2XL", 7],
       ["3XL", 8]
     ]
   }
@@ -278,7 +278,7 @@ style_question_5 = Question.new(
           }
         }
       }],
-      ["very-bright.png", 3, {
+      ["bright_colour.png", 3, {
         rules: {
           main_colour: {
             excludes: ['pink', 'lilac', 'sand','red']
@@ -292,14 +292,7 @@ style_question_5 = Question.new(
           }
         }
       }],
-      ["pastel_colour.png", 5, {
-        rules: {
-          main_colour: {
-            excludes: ['lilac', 'light-blue', 'pink' ]
-          }
-        }
-      }],
-      ["none.png", 6, {
+      ["none.png", 5, {
         rules: {
           main_colour: {
             excludes: []
