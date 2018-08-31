@@ -2,15 +2,16 @@
 <% content_for :meta_title, "#{DEFAULT_META["meta_product_name"]}-Thank you for your order" %>
 
 <div class="confirmation-page-container">
+  <div class="checkout-header">
+  <h1 style="font-size:59px;">Thank you for purchasing from <strong>KelX</strong></h1>
+</div>
   <div class="col-xs-12 offset-1">
+
   <div class="order-table">
-    <p style="font-size: 25px; letter-spacing: 8px; font-weight: bold;">Thank you for purchasing from <strong>KelX</strong></p>
+    <p style="letter-spacing: 2px; color: gray;">Your order is being processed and will arrive very soon</p>
+    <p style="letter-spacing: 2px; color: gray;">We are confident that you will love your new outfit!</p>
     <br>
-    <p style="letter-spacing: 4px; color: gray;">Your order is being processed and will arrive very soon</p>
-    <p style="letter-spacing: 4px; color: gray;">We are confident that you will love your new outfit!</p>
-    <br>
-    <p style="letter-spacing: 4px; color: gray;">If you have any issues, please do not hesitate to contact us</p>
-    <h1>Your Order Details</h1>
+    <p style="letter-spacing: 2px; color: gray;">If you have any issues, please do not hesitate to contact us</p>
     <div class="order-table-section">
       <div class="cart-table-header">
         <div class="row">
@@ -42,7 +43,7 @@
     <br>
 
     <div class="button-back" style=" text-align: center;">
-    <%= link_to products_path, class: 'back-recommedation-button btn btn-danger shaded-rounded-btn' do %><span class="glyphicon glyphicon-menu-left" style="font-size: 16px;"></span>BACK TO RECOMMENDATIONS<% end %>
+    <%= link_to products_path do %><span class="glyphicon glyphicon-menu-left" style="font-size: 16px;"></span>BACK TO RECOMMENDATIONS<% end %>
     </div>
   </div>
 </div>
