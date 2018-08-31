@@ -180,7 +180,7 @@ pants_size_question_3 = Question.new(
     type: "selection",
     header: "Pants Gripes",
     explanation: "Knowing this will help us adjust your Kelx Tailored-Size?",
-    question: "Are there any issues you usually have with shirts?",
+    question: "Are there any issues you usually have with pants?",
     option_type: 'text',
     options: [
       ["Thigh too tight", 1],
