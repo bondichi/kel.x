@@ -75,6 +75,16 @@ ul.question-type-image .input.radio_buttons {
   // margin: 0 200px;
 }
 
+ul.question-type-text .input.radio_buttons {
+  margin: 0 120px;
+
+  .survey-answer-item label {
+    line-height: 60px;
+    padding: 0 14px;
+    min-width: 60px;
+  }
+}
+
 .explanation {
   border-left: solid #eee 1px;
   padding-bottom: 60px;
