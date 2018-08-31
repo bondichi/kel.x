@@ -7,39 +7,39 @@
 
 
 <div class="wrapper-product-page">
-  <div class="row">
-      <div class="col-sm-offset-2 col-md-8">
-        <div class="product-page-container">
+  <div>
+      <div>
+        <div class="product-page-container container">
           <div class="row">
-            <div class="col-md-5">
+            <div class="col-md-4">
               <div class="product-page-img">
                 <img class= "main-image" src=<%= cl_image_path(@product.photo, :width=>360, :height=>500, :gravity=>"auto", :crop=>"fill") %> alt="Image of selected clothing item">
               </div>
             </div>
-            <div class="col-md-7">
+            <div class="col-md-8">
               <div class="product-page-content">
                 <div class="product-description">
                   <h4><strong><%= @product.brand.name %></strong></h4>
-                  <br>
                   <h5><%= @product.description %></h5>
                   <br>
                   <p>Main colour: <%= @product.main_colour %></p>
                   <p>Print/wash: <%= @product.print_wash %></p>
                   <p>Fit: <%= @product.silhouette %></p>
                   <p>Fabric Composition: <%= @product.fabric_composition %></p>
-                </div>
                 <div class="product-meta-action">
-                  <div class="product-price">
-                    <strong>Price: </strong><%=  humanized_money_with_symbol(@product.sale_price) %>
-                  </div>
+
                   <div class= "add-to-cart">
                     <%= simple_form_for @cart_item do |f| %>
                       <%= f.input :product_id, as: :hidden %>
-                      <%= image_tag "shopping-cart.png", height: 50 %>
-                      <%= f.button :submit, "Add to cart" %>
+                      <%= f.button :submit, "Add to cart", class: 'btn-add-to-cart' %>
                     <% end %>
                   </div>
+                  <div class="product-price">
+                    <strong><%=  humanized_money_with_symbol(@product.sale_price) %></strong>
+                  </div>
                 </div>
+                                </div>
+
               </div>
             </div>
           </div>
@@ -49,7 +49,7 @@
   <div class="row">
     <div class="col-sm-offset-2 col-sm-8">
         <div class="back-to-recs">
-          <%= link_to products_path, class: 'back-recommedation-button btn btn-danger shaded-rounded-btn' do %><span class="glyphicon glyphicon-menu-left" style="font-size: 16px;"></span>BACK TO RECOMMENDATIONS<% end %>
+          <%= link_to products_path, class: '' do %><span class="glyphicon glyphicon-menu-left" style="font-size: 16px;"></span>BACK TO RECOMMENDATIONS<% end %>
         </div>
     </div>
   </div>

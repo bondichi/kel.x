@@ -43,6 +43,7 @@
                 <h2 class="question-header">
                   <%= question[:content]["header"] %>
                 </h2>
+                <div class="question-wrapper">
           			<p class="question-text">
           				<%= question[:content]["question"] %>
           			</p>
@@ -84,6 +85,7 @@
                   </div>
                 </div>
                 <%= f.submit("Submit", class: "btn btn-default invisible", id: "question-#{question.id}-submit-btn" ) %>
+              </div>
           	  <% end %>
             <% end %>
           </div>

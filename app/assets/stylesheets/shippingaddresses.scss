@@ -20,4 +20,12 @@
 
 .shipping-page-container {
   padding: 80px 0;
+
+  input[type="text"],
+  input[type="number"] {
+    border: 0;
+    border-bottom: 2px solid #999;
+    padding: 30px 15px;
+    margin-bottom: 30px;
+  }
 }

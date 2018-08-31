@@ -17,9 +17,19 @@
   justify-content: center;
   letter-spacing: 1px;
   margin-bottom: 20px;
+  border-radius: 5px;
+  overflow: hidden;
+
+  > .simple_form {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+.question-wrapper {
   background-color: white;
   padding: 40px;
-  border-radius: 5px;
 }
 
 .question{
@@ -105,11 +115,20 @@ ul.question-type-text .input.radio_buttons {
   margin: 0 auto 30px;
   border-radius: 2px;
   border-bottom: 3px solid #222;
+
+  /* Marty Changes */
+  margin: 0 auto;
+    border: 0;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 30px;
+    margin-top: 30px;
 }
 
 .question-text {
-  margin-top: 23px;
-  margin-bottom: 40px;
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 25px;
   font-weight: bold;
 }
 
@@ -122,13 +141,16 @@ ul.question-type-text .input.radio_buttons {
 }
 
 .inner-footer {
-  background-color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 70px;
   margin: 10px 0 10px 0;
   border-radius: 5px;
+
+  .btn {
+    background: none;
+  }
 }
 
 .survey-nav {
