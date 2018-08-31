@@ -1,17 +1,28 @@
 function hide() {
+  const question = document.getElementById('form_wrapper_<%= @question_id %>');
+
 	question.classList.add('invisible');
 };
 
-question = document.getElementById('form_wrapper_<%= @question_id %>');
-progress = document.getElementById('survey-progress');
-progress.innerText = '<%= (@survey.questions.count - @survey_response.unanswered_questions.count) + 1 %> / <%= @survey.questions.count %>';
+function updateNumber() {
+  const question = document.getElementById('form_wrapper_<%= @question_id %>');
+  const progress = document.getElementById('survey-progress');
+  const surveyQuestion = <%= @survey.questions.count %>;
+  const surveyUnanswer = <%= @survey_response.unanswered_questions.count %>;
 
-question.classList.add('animated');
-question.classList.add('fadeOutUp');
+  if (surveyUnanswer > 0) {
+    progress.innerText = `${surveyQuestion - surveyUnanswer + 1} / ${ surveyQuestion }`;
+  }
+
+  question.classList.add('animated');
+  question.classList.add('fadeOutUp');
+}
+
+updateNumber();
 setTimeout(hide, 800);
 
 
-if (<%= @last_question%>) {
+if (<%= @last_question %>) {
 
   window.location.replace('/products');
 
