@@ -5,13 +5,17 @@
 }
 
 .shirts-title {
-  margin-top: 93px;
+  margin-top: 40px;
   font-weight: bold;
 }
 
 .pants-title  {
   margin-top: 211px;
   font-weight: bold;
+}
+.recommendation-header-line {
+  border-color: #ccc;
+  max-width: 800px;
 }
 
 .container-card {
@@ -28,10 +32,11 @@
 
 .card-description {
   top: 517px;
-  left: 10px;
-  width: 295px;
+  width: 100%;
+  text-align: center;
   p {
-    height: 50px;
+      text-align: center;
+
   }
 }
 
@@ -174,4 +179,15 @@
 
 .back-to-recs .back-recommedation-button{
   font-size:26px;
+}
+
+.btn-recommendation {
+  background-color: white;
+    color: black;
+    border: 2px solid black;
+    border-radius: 0;
+    padding: 10px 35px;
+    text-transform: uppercase;
+    margin-top: 10px;
+    font-weight: bold;
 }

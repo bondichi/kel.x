@@ -16,6 +16,7 @@
 
   <div class="shirts-title"">
     <h2>SHIRTS</h2>
+
   </div>
 
   <div class="container" style="padding-top: 60px; padding-bottom: 30px;">
@@ -28,7 +29,7 @@
             ">
               <div class="card-description">
                 <p style="font-family: 'Cabin', sans-serif; width: 339px;"><%=  (product.description) %> </p>
-                <p style="font-family: 'Cabin', sans-serif; font-size: 30px;"><%=  humanized_money_with_symbol(product.sale_price) %></p>
+               <%=  link_to 'See more', product, class: 'btn btn-default btn-recommendation' %>
               </div>
             </div>
           </div>
@@ -39,6 +40,7 @@
   </div>
 
   <div class="pants-title">
+    <hr class="recommendation-header-line" />
     <h2>PANTS</h2>
   </div>
 
@@ -52,7 +54,7 @@
             ">
               <div class="card-description" >
                 <p style="font-family: 'Cabin', sans-serif; width: 339px;"><%=  (product.description) %> </p>
-                <p style="font-family: 'Cabin', sans-serif; font-size: 30px;"><%=  humanized_money_with_symbol(product.sale_price) %></p>
+                <%=  link_to 'See more', product, class: 'btn btn-default btn-recommendation' %>
               </div>
             </div>
           </div>

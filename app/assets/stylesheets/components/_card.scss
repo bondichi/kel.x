@@ -25,8 +25,9 @@
 .card-description {
   position: absolute;
   bottom: 10px;
-  left: 10px;
   size: 17px;
+  left: 0;
+  width: 100%;
 }
 .card-description h2 {
   font-size: 38px;
@@ -34,9 +35,10 @@
 }
 .card-description p {
   text-align: left;
-  color: black;
-  font-size: 14px;
-  letter-spacing: 3px;
+  letter-spacing: 1px;
+  font-size: 18px;
+  color: #333;
+  min-height: 75px;
 }
 .card-link {
   position: absolute;
