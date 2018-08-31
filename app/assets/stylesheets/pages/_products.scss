@@ -115,9 +115,9 @@
 }
 
 .add-to-cart {
-  position: absolute;
-  bottom: -180px;
-  right: 20px;
+  // position: absolute;
+  // bottom: -180px;
+  // right: 20px;
 
 }
 
@@ -136,18 +136,31 @@
 
 .product-description h4{
   font-size: 35px;
+  margin-right: 40px;
 }
 
 .product-description h5 {
   font-style: italic;
   font-size: 30px;
+  margin-right: 40px;
+}
+
+.product-meta-action {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+  padding: 0 40px 0 20px;
+
+  position: absolute;
+  bottom: -180px;
 }
 
 .product-price {
-  position: absolute;
-  bottom: -193px;
-  left: 20px;
-  margin-top: 10px;
+  // position: absolute;
+  // bottom: -193px;
+  // left: 20px;
+  // margin-top: 10px;
   font-size: 30px;
 }
 
