@@ -67,84 +67,84 @@ puts "Creating Questions"
 
 shirts_size_question_1 = Question.new(
   content: {
-    type: "selection", 
-    header: "Let's Gauge Your Size - Shirts", 
-    question: "Which of these brands fits you best in a long sleeve dress shirt?", 
-    explanation: "We will use the garment specifications to begin our calibration of your Kelx Tailored-Size", 
-    option_type: 'image', 
-    options: [
-      ["logo_pull_and_bear.png", 1], 
-      ["logo_new_look.png", 2], 
-      ["logo_ralph_lauren.png", 3],
-      ["logo_ralph_lauren.png", 4],
-      ["logo_ralph_lauren.png", 5] # Add in Burton and Farah Image
-    ] 
-  }
-)
-
-shirts_size_question_2 = Question.new( 
-  content: {
-    type: "selection", 
+    type: "selection",
     header: "Let's Gauge Your Size - Shirts",
-    explanation: "We will use the garment specifications to begin our calibration of your Kelx Tailored-Size", 
-    question: "Which size would you usually wear in this brand?", 
-    option_type: 'text', 
+    question: "Which of these brands fits you best in a long sleeve dress shirt?",
+    explanation: "We will use the garment specifications to begin our calibration of your Kelx Tailored-Size",
+    option_type: 'image',
     options: [
-      ["XS", 1], 
-      ["S", 2], 
-      ["M", 3], 
-      ["L", 4], 
-      ["XL", 5], 
-      ["XL", 6], 
-      ["XXL", 7], 
-      ["3XL", 8]
-    ] 
+      ["logo_pull_and_bear.png", 1],
+      ["logo_new_look.png", 2],
+      ["logo_ralph_lauren.png", 3],
+      ["logo_farah.png", 4],
+      ["logo_burton.png", 5]
+    ]
   }
 )
 
-shirts_size_question_3 = Question.new( 
+shirts_size_question_2 = Question.new(
+  content: {
+    type: "selection",
+    header: "Let's Gauge Your Size - Shirts",
+    explanation: "We will use the garment specifications to begin our calibration of your Kelx Tailored-Size",
+    question: "Which size would you usually wear in this brand?",
+    option_type: 'text',
+    options: [
+      ["XS", 1],
+      ["S", 2],
+      ["M", 3],
+      ["L", 4],
+      ["XL", 5],
+      ["XL", 6],
+      ["XXL", 7],
+      ["3XL", 8]
+    ]
+  }
+)
+
+shirts_size_question_3 = Question.new(
   content: {
     type: "selection",
     header: "Shirt Gripes",
     explanation: "Knowing this will help us adjust your Kelx Tailored-Size?",
-    question: "Are there any issues you usually have with shirts?", 
-    option_type: 'text', 
+    question: "Are there any issues you usually have with shirts?",
+    option_type: 'text',
     options: [
-      ["Collar too tight", 1], 
-      ["Collar too loose", 2], 
-      ["Length too long", 3], 
-      ["Length too short", 4], 
-      ["Sleeves too long", 5], 
-      ["Sleeves too short", 6], 
-      ["Sleeves too tight", 7], 
-      ["Body too loose", 8], 
-      ["Body too tight", 9], 
+      ["Collar too tight", 1],
+      ["Collar too loose", 2],
+      ["Length too long", 3],
+      ["Length too short", 4],
+      ["Sleeves too long", 5],
+      ["Sleeves too short", 6],
+      ["Sleeves too tight", 7],
+      ["Body too loose", 8],
+      ["Body too tight", 9],
       ["No Issues", 10]
-    ] 
+    ]
   }
 )
 
 pants_size_question_1 = Question.new(
   content: {
-    type: "selection", 
-    header: "Let's Gauge Your Size - Pants", 
-    question: "Which of these brands fits you best in a long pants?", 
-    explanation: "We will use the garment specifications to begin our calibration of your Kelx Tailored-Size", 
-    option_type: 'image', 
+    type: "selection",
+    header: "Let's Gauge Your Size - Pants",
+    question: "Which of these brands fits you best in a long pants?",
+    explanation: "We will use the garment specifications to begin our calibration of your Kelx Tailored-Size",
+    option_type: 'image',
     options: [
-      ["logo_pull_and_bear.png", 1], 
+      ["logo_pull_and_bear.png", 1],
       ["logo_new_look.png", 2]
-    ] 
+    ]
   }
 )
 
-pants_size_question_2 = Question.new( 
+pants_size_question_2 = Question.new(
   content: {
-    type: "selection", 
+    type: "selection",
     header: "Let's Gauge Your Size - Pants",
-    explanation: "We will use the garment specifications to begin our calibration of your Kelx Tailored-Size", 
-    question: "Which size would you usually wear in this brand?", 
-    option_type: 'text', 
+    explanation: "We will use the garment specifications to begin our calibration of your Kelx Tailored-Size",
+    question: "Which size would you usually wear in this brand?",
+    option_type: 'text',
     options: [
       ["W26 L30", 1],
       ["W26 L32", 2],
@@ -171,88 +171,88 @@ pants_size_question_2 = Question.new(
       ["W36 L34", 23],
       ["W38 L32", 24],
       ["W38 L34", 25]
-    ] 
+    ]
   }
 )
 
-pants_size_question_3 = Question.new( 
+pants_size_question_3 = Question.new(
   content: {
     type: "selection",
     header: "Pants Gripes",
     explanation: "Knowing this will help us adjust your Kelx Tailored-Size?",
-    question: "Are there any issues you usually have with shirts?", 
-    option_type: 'text', 
+    question: "Are there any issues you usually have with shirts?",
+    option_type: 'text',
     options: [
-      ["Thigh too tight", 1], 
-      ["Thigh too loose", 2], 
-      ["Waist too tight", 3], 
-      ["Waist too loose", 4],  
-      ["Glutes too tight", 5], 
-      ["Glutes too loose", 6], 
-      ["Leg too long", 7], 
-      ["Leg too short", 8], 
+      ["Thigh too tight", 1],
+      ["Thigh too loose", 2],
+      ["Waist too tight", 3],
+      ["Waist too loose", 4],
+      ["Glutes too tight", 5],
+      ["Glutes too loose", 6],
+      ["Leg too long", 7],
+      ["Leg too short", 8],
       ["No Issues", 9]
-    ] 
+    ]
   }
 )
 
-style_question_1 = Question.new( 
+style_question_1 = Question.new(
   content: {
     type: "selection",
     header: "What's your Style?",
     explanation: "The type of garment cut your prefer will also influence your size",
-    question: "Which fit do you usually like to wear in a shirt?", 
-    option_type: 'image', 
+    question: "Which fit do you usually like to wear in a shirt?",
+    option_type: 'image',
     options: [
-      ["slim.png", 1], 
-      ["tailored.png", 2], 
+      ["slim.png", 1],
+      ["tailored.png", 2],
       ["standard.png", 3]
-    ] 
+    ]
   }
 )
 
-style_question_2 = Question.new( 
+style_question_2 = Question.new(
   content: {
     type: "selection",
     header: "What's your Style?",
     explanation: "The type of garment cut your prefer will also influence your size",
-    question: "Which fit do you usually like to wear in a pants", 
-    option_type: 'image', 
+    question: "Which fit do you usually like to wear in a pants",
+    option_type: 'image',
     options: [
-      ["slim.png", 1], 
-      ["tailored.png", 2], 
-      ["standard.png", 3] #add images for pants cuts
-    ] 
+      ["skinny_pants.png", 1],
+      ["slim_pants.png", 2],
+      ["regular_pants.png", 3] #add images for pants cuts
+    ]
   }
 )
 
-style_question_3 = Question.new( 
+style_question_3 = Question.new(
   content: {
     type: "selection",
     header: "What's your Style?",
     explanation: "How hip is your work?",
-    question: "Which style would you normally wear to work?", 
-    option_type: 'image', 
+    question: "Which style would you normally wear to work?",
+    option_type: 'image',
     options: [
-      ["smart.jpg", 1], 
-      ["smart-casual.jpg", 2], 
-      ["casual.png", 3] # change images to Kelly's
-    ] 
+      ["work_wear_suit.png", 1],
+      ["work_wear_smart_casual.png", 2],
+      ["work_wear_casual.png", 3] # change images to Kelly's
+    ]
   }
 )
 
-style_question_4 = Question.new( 
+style_question_4 = Question.new(
   content: {
     type: "selection",
     header: "What's your Style?",
     explanation: "We will use this as guide for our personal styling",
-    question: "Which style would you wear in your free time?", 
-    option_type: 'image', 
+    question: "Which style would you wear in your free time?",
+    option_type: 'image',
     options: [
-      ["smart.jpg", 1], 
-      ["smart-casual.jpg", 2], 
-      ["casual.png", 3] # change images to Kelly's
-    ] 
+      ["work_wear_smart_casual.png", 1],
+      ["classic_casual_wknd.png", 2],
+      ["laid_back_casual.png", 3] # change images to Kelly's
+    ]
   }
 )
 
@@ -264,14 +264,14 @@ style_question_5 = Question.new(
     question: "Are there any colours you prefer not to wear?",
     option_type: 'image',
     options: [
-      ["black-dark.png", 1, {
+      ["dark_colour.png", 1, {
         rules: {
           main_colour: {
             excludes: ['black', 'navy']
           }
         }
       }],
-      ["very-pale.png", 2, {
+      ["very_pale_colour.png", 2, {
         rules: {
           main_colour: {
             excludes: ['white', 'sand', 'lilac']
@@ -285,14 +285,14 @@ style_question_5 = Question.new(
           }
         }
       }],
-      ["neutrals.png", 4, {
+      ["neutral_colour.png", 4, {
         rules: {
           main_colour: {
             excludes: ['maroon', 'sand']
           }
         }
       }],
-      ["pastel.png", 5, {
+      ["pastel_colour.png", 5, {
         rules: {
           main_colour: {
             excludes: ['lilac', 'light-blue', 'pink' ]
