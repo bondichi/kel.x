@@ -58,7 +58,7 @@
                 <!-- Answer Options as Buttons  -->
                 <div class="row">
                   <div class="col-md-12">
-                    <ul class = "list-unstyled">
+                    <ul class = "list-unstyled question-type-<%= question[:content]['option_type'] %>">
                       <%= f.input :survey_response_id, as: :hidden %>
                       <%= f.input :content, as: :radio_buttons, label: false do    %>
                         <% question[:content]["options"].each_with_index do |c, i| %>
@@ -73,7 +73,7 @@
                           <li class= "survey-answer-item">
                             <%= f.radio_button(:content, c.second, class: "survey-answer-radio",  id: "answer_#{question.id}_#{i}") %><%= f.label c.first, class: "form-check-label survey-answer-label", data: { 'question-id' => question.id }, for: "answer_#{question.id}_#{i}" do %>
                               <div class="survey-answer-image">
-                                <%= image_tag c.first, height: 215, width: 160 %>
+                                <%= image_tag c.first %>
                               </div>
                             <% end %>
                           </li>
