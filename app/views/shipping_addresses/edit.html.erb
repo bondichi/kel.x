@@ -4,6 +4,7 @@
   <div class="shipping-page-container">
   <div class="shipping-heading style="margin-top: 143px;">
     <h1>Shipping Details</h1>
+    <p>Enter the details you'd like to get your products shipped to.</p>
   </div>
     <div class="row">
       <div class="col-xs-12 col-md-6 col-md-offset-3">
@@ -33,11 +34,11 @@
           </div>
             <div class="ctas-shipping-page">
               <div class="update-address">
-                <button class="btn-default small-submit-button" type="button"><%= f.button :submit %></button>
+                <%= f.button :submit, class: 'small-submit-button btn btn-default' %>
               </div>
               <div class="submit-path">
                 <%= link_to orders_path, method: :post do %>
-                <%= submit_tag 'CHECKOUT', class: 'btn-group-lg btn-danger btn-lg small-submit-button'%>
+                <%= submit_tag 'NEXT ›', class: 'btn-group-lg btn-danger btn-lg small-submit-button'%>
                 <% end %>
               </div>
             </div>

@@ -1,6 +1,7 @@
 .checkout-header {
 	display: flex;
 	justify-content: space-around;
+  margin: 40px 0;
 }
 
 
@@ -15,4 +16,21 @@
   	justify-content: space-between;
   	align-items: center;
   }
+}
+
+.checkout_button {
+  width: 100%;
+  text-align: right;
+  button span {
+    display: block;
+    min-height: 30px;
+    font-size: 22px;
+  }
+}
+
+.cart-delete-button {
+  font-size: 30px;
+  font-weight: bold;
+  color: #333;
+  margin-right: 5px;
 }
