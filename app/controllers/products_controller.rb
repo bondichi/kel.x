@@ -1,23 +1,26 @@
 class ProductsController < ApplicationController
   def index
   	survey_response = SurveyResponse.find_by(profile_id: current_user.id)
-    answers_for_filter = []
+    answers_for_tops_filter = []
+    answers_for_bottoms_filter = []
   	Answer.where(survey_response_id: survey_response.id).each do |answer| 
-      
-      if answer.content['name'] == 'budget_bottoms' || answer.content['name'] == 'budget_tops' || answer.content['name'] == 'style_5'
-        answers_for_filter << answer
+      if answer.content['name'] == 'budget_tops' || answer.content['name'] == 'style_5'
+        answers_for_tops_filter << answer
       end
     end
-    # take off filter for now
+    Answer.where(survey_response_id: survey_response.id).each do |answer| 
+      if answer.content['name'] == 'budget_bottoms' || answer.content['name'] == 'style_5'
+        answers_for_bottoms_filter << answer
+      end      
+    end
     products_tops = Product.where(category: "TOPS")
     products_bottom = Product.where(category: "BOTTOMS")
 
-    raise
-  	# @filtered_products_tops = filter_products_all(Product.where(category: "TOPS"), answers_for_filter)
+  	@filtered_products_tops = filter_products_all(products_tops, answers_for_tops_filter)
+    @filtered_products_bottoms = filter_products_all(products_bottom, answers_for_bottoms_filter)
     # @filtered_products_bottoms = filter_products_all(Product.where(category: "BOTTOMS"), answers_for_filter)
-    @filtered_products_tops = Product.where(category: "TOPS")
-    @filtered_products_bottoms = Product.where(category: "BOTTOMS")
-
+    # @filtered_products_tops = Product.where(category: "TOPS")
+    # @filtered_products_bottoms = Product.where(category: "BOTTOMS")
   end
 
   def show
@@ -53,6 +56,7 @@ class ProductsController < ApplicationController
   end
 
   def filter_products_by_price(products, answer)
+    
 	 	max_price = answer.content["rules"]["sale_price_cents"]["lesser"] 
   	min_price = answer.content["rules"]["sale_price_cents"]["greater"] 
 

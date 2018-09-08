@@ -343,7 +343,7 @@ budget_question_1 = Question.new(
         rules: {
           sale_price_cents: {
             greater: 2000,
-            lesser: 150000
+            lesser: 15000
           }
         }
       }],
@@ -351,7 +351,7 @@ budget_question_1 = Question.new(
         rules: {
           sale_price_cents: {
             greater: 2000,
-            lesser: 1000000
+            lesser: 100000
           }
         }
       }]
@@ -388,7 +388,7 @@ budget_question_2 = Question.new(
         rules: {
           sale_price_cents: {
             greater: 2000,
-            lesser: 150000
+            lesser: 15000
           }
         }
       }],
@@ -396,7 +396,7 @@ budget_question_2 = Question.new(
         rules: {
           sale_price_cents: {
             greater: 2000,
-            lesser: 1000000
+            lesser: 100000
           }
         }
       }]
