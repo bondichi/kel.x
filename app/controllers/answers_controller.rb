@@ -9,8 +9,6 @@ class AnswersController < ApplicationController
     else
       content_data = { 'content' => content_data,'name' => answer_name }
     end
-
-    # binding.pry
     Answer.create(question_id: params[:question_id], content: content_data, survey_response_id: answer_params[:survey_response_id])
     @survey_response = SurveyResponse.find(answer_params[:survey_response_id])
     @survey = Survey.find(@survey_response.survey_id)
