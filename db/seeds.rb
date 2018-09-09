@@ -1,56 +1,56 @@
 require 'csv'
 
-csv_options = { col_sep: ',', quote_char: '"', headers: :first_row }
-filepath    = 'db/kelx-all-products.csv'
+# csv_options = { col_sep: ',', quote_char: '"', headers: :first_row }
+# filepath    = 'db/kelx-all-products.csv'
 
-puts "Creating 5 brands"
+# puts "Creating 5 brands"
 
- Brand.create(name: 'POLO RALPH LAUREN')
- Brand.create(name: 'NEW LOOK')
- Brand.create(name: 'PULL & BEAR')
- Brand.create(name: 'FARAH')
- Brand.create(name: 'BURTON')
+#  Brand.create(name: 'POLO RALPH LAUREN')
+#  Brand.create(name: 'NEW LOOK')
+#  Brand.create(name: 'PULL & BEAR')
+#  Brand.create(name: 'FARAH')
+#  Brand.create(name: 'BURTON')
 
-CSV.foreach(filepath, csv_options) do |row|
-  puts "Making a Product"
-  Product.create!(
-  vpn: row['vpn'],
-  style: row['style'],
-  sku: row['sku'],
-  barcode: 0,
-  size: row['size'],
-  neck_circumference: row['neck_circumference'].to_i,
-  shoulder_width: row['shoulder_width'].to_i,
-  arm_length: row['arm_length'].to_i,
-  center_back: row['center_back'].to_i,
-  chest_width: row['chest_width'].to_i,
-  waist_circumference: 0,
-  inner_leg: row['inner_leg'].to_i,
-  outer_leg: row['outer_leg'].to_i,
-  thigh_circumference: row['thigh_circumference'].to_i,
-  glutes: row['glutes'].to_i,
-  cost_price: row['cost_price'].to_i,
-  rrp: row['rrp'].to_i,
-  sale_price: row['sale_price'].to_i,
-  photo_id: 0,
-  brand_id: row['brand_id'].to_i,
-  created_at: 0,
-  updated_at: 0,
-  description: row['description'],
-  category: row['category'],
-  cost_price_cents: row['cost_price_cents'],
-  rrp_cents: row['rrp_cents'].to_i,
-  sale_price_cents: row['sale_price_cents'].to_i,
-  vendor: row['vendor'],
-  style_number: row['style_number'],
-  size_code: row['size_code'],
-  sub_category: row['sub_category'],
-  fabric_composition: row['fabric_composition'],
-  silhouette: row['silhouette'],
-  main_colour: row['main_colour'],
-  print_wash: row['print_wash'],
-  remote_photo_url: row['remote_photo_url'])
-end
+# CSV.foreach(filepath, csv_options) do |row|
+#   puts "Making a Product"
+#   Product.create!(
+#   vpn: row['vpn'],
+#   style: row['style'],
+#   sku: row['sku'],
+#   barcode: 0,
+#   size: row['size'],
+#   neck_circumference: row['neck_circumference'].to_i,
+#   shoulder_width: row['shoulder_width'].to_i,
+#   arm_length: row['arm_length'].to_i,
+#   center_back: row['center_back'].to_i,
+#   chest_width: row['chest_width'].to_i,
+#   waist_circumference: 0,
+#   inner_leg: row['inner_leg'].to_i,
+#   outer_leg: row['outer_leg'].to_i,
+#   thigh_circumference: row['thigh_circumference'].to_i,
+#   glutes: row['glutes'].to_i,
+#   cost_price: row['cost_price'].to_i,
+#   rrp: row['rrp'].to_i,
+#   sale_price: row['sale_price'].to_i,
+#   photo_id: 0,
+#   brand_id: row['brand_id'].to_i,
+#   created_at: 0,
+#   updated_at: 0,
+#   description: row['description'],
+#   category: row['category'],
+#   cost_price_cents: row['cost_price_cents'],
+#   rrp_cents: row['rrp_cents'].to_i,
+#   sale_price_cents: row['sale_price_cents'].to_i,
+#   vendor: row['vendor'],
+#   style_number: row['style_number'],
+#   size_code: row['size_code'],
+#   sub_category: row['sub_category'],
+#   fabric_composition: row['fabric_composition'],
+#   silhouette: row['silhouette'],
+#   main_colour: row['main_colour'],
+#   print_wash: row['print_wash'],
+#   remote_photo_url: row['remote_photo_url'])
+# end
 
 puts "Deleting previous survey and question seeds"
 
@@ -67,6 +67,7 @@ puts "Creating Questions"
 
 shirts_size_question_1 = Question.new(
   content: {
+    name: "shirts_size_1",
     type: "selection",
     header: "Let's Gauge Your Size - Shirts",
     question: "Which of these brands fits you best in a long sleeve dress shirt?",
@@ -84,6 +85,7 @@ shirts_size_question_1 = Question.new(
 
 shirts_size_question_2 = Question.new(
   content: {
+    name: "shirts_size_2",
     type: "selection",
     header: "Let's Gauge Your Size - Shirts",
     explanation: "We will use the garment specifications to begin our calibration of your Kelx Tailored-Size",
@@ -104,6 +106,7 @@ shirts_size_question_2 = Question.new(
 
 shirts_size_question_3 = Question.new(
   content: {
+    name: "shirts_size_3",
     type: "selection",
     header: "Shirt Gripes",
     explanation: "Knowing this will help us adjust your Kelx Tailored-Size?",
@@ -126,6 +129,7 @@ shirts_size_question_3 = Question.new(
 
 pants_size_question_1 = Question.new(
   content: {
+    name: "pants_size_1",
     type: "selection",
     header: "Let's Gauge Your Size - Pants",
     question: "Which of these brands fits you best in a long pants?",
@@ -140,6 +144,7 @@ pants_size_question_1 = Question.new(
 
 pants_size_question_2 = Question.new(
   content: {
+    name: "pants_size_2",
     type: "selection",
     header: "Let's Gauge Your Size - Pants",
     explanation: "We will use the garment specifications to begin our calibration of your Kelx Tailored-Size",
@@ -177,6 +182,7 @@ pants_size_question_2 = Question.new(
 
 pants_size_question_3 = Question.new(
   content: {
+    name: "pants_size_3",
     type: "selection",
     header: "Pants Gripes",
     explanation: "Knowing this will help us adjust your Kelx Tailored-Size?",
@@ -198,6 +204,7 @@ pants_size_question_3 = Question.new(
 
 style_question_1 = Question.new(
   content: {
+    name: "style_1",
     type: "selection",
     header: "What's your Style?",
     explanation: "The type of garment cut your prefer will also influence your size",
@@ -213,6 +220,7 @@ style_question_1 = Question.new(
 
 style_question_2 = Question.new(
   content: {
+    name: "style_2",
     type: "selection",
     header: "What's your Style?",
     explanation: "The type of garment cut your prefer will also influence your size",
@@ -228,6 +236,7 @@ style_question_2 = Question.new(
 
 style_question_3 = Question.new(
   content: {
+    name: "style_3",
     type: "selection",
     header: "What's your Style?",
     explanation: "How hip is your work?",
@@ -243,6 +252,7 @@ style_question_3 = Question.new(
 
 style_question_4 = Question.new(
   content: {
+    name: "style_4",
     type: "selection",
     header: "What's your Style?",
     explanation: "We will use this as guide for our personal styling",
@@ -258,6 +268,7 @@ style_question_4 = Question.new(
 
 style_question_5 = Question.new(
   content: {
+    name: "style_5",
     type: "selection",
     header: "What's your Style?",
     explanation: "We will use this as guide for our personal styling",
@@ -305,6 +316,7 @@ style_question_5 = Question.new(
 
 budget_question_1 = Question.new(
   content: {
+    name: "budget_tops",
     type: "selection",
     header: "Budget",
     explanation: "We will recommend pieces in withing your limits",
@@ -322,7 +334,7 @@ budget_question_1 = Question.new(
       ["$50-$100", 2, {
         rules: {
           sale_price_cents: {
-            greater: 5000,
+            greater: 2000,
             lesser: 10000
           }
         }
@@ -330,16 +342,16 @@ budget_question_1 = Question.new(
       ["$100-150", 3, {
         rules: {
           sale_price_cents: {
-            greater: 100000,
-            lesser: 150000
+            greater: 2000,
+            lesser: 15000
           }
         }
       }],
       ["$150 +", 4, {
         rules: {
           sale_price_cents: {
-            greater: 150000,
-            lesser: 1000000
+            greater: 2000,
+            lesser: 100000
           }
         }
       }]
@@ -349,6 +361,7 @@ budget_question_1 = Question.new(
 
 budget_question_2 = Question.new(
   content: {
+    name: "budget_bottoms",
     type: "selection",
     header: "Budget",
     explanation: "We will recommend pieces in withing your limits",
@@ -375,7 +388,7 @@ budget_question_2 = Question.new(
         rules: {
           sale_price_cents: {
             greater: 2000,
-            lesser: 150000
+            lesser: 15000
           }
         }
       }],
@@ -383,7 +396,7 @@ budget_question_2 = Question.new(
         rules: {
           sale_price_cents: {
             greater: 2000,
-            lesser: 1000000
+            lesser: 100000
           }
         }
       }]
